@@ -11,6 +11,19 @@ from PIL import Image, ImageOps, ImageSequence
 
 ALLOWED_EXT = ('.jpeg', '.jpg', '.png', '.tiff', '.gif', '.bmp', '.webp')
 
+# Define a help message
+HELP_MESSAGE = """This node loads and processes images for use in image generation pipelines.
+
+Key features:
+
+1. Supports loading single images or batches from a specified folder
+2. Handles various image formats including JPEG, PNG, TIFF, GIF, BMP, and WebP
+3. Processes RGBA images, separating the alpha channel as a mask
+4. Calculates image quality score, size, and noise levels
+5. Provides options for including subdirectories and handling filename extensions
+6. Returns processed image tensor, mask, and various metadata
+7. Offers seed-based selection for consistent image loading from folders"""
+
 def get_sha256(file_path):
     sha256_hash = hashlib.sha256()
     with open(file_path, 'rb') as file:
@@ -36,8 +49,8 @@ class FRED_LoadImage_V5:
             }
         }
 
-    RETURN_TYPES = ("IMAGE", "MASK", "INT", "INT", "INT", "INT", "INT", "FLOAT", "STRING", "STRING")
-    RETURN_NAMES = ("IMAGE", "MASK", "IMAGE_SIZE_KB", "WIDTH", "HEIGHT", "QUALITY_SCORE", "IMAGES QUANTITY IN FOLDER", "SNR", "FOLDER_PATH", "filename_text")
+    RETURN_TYPES = ("IMAGE", "MASK", "INT", "INT", "INT", "INT", "INT", "FLOAT", "STRING", "STRING", "STRING")
+    RETURN_NAMES = ("IMAGE", "MASK", "IMAGE_SIZE_KB", "WIDTH", "HEIGHT", "QUALITY_SCORE", "IMAGES QUANTITY IN FOLDER", "SNR", "FOLDER_PATH", "filename_text", "help")
     FUNCTION = "load_image"
     CATEGORY = "FRED/image"
 
@@ -183,7 +196,7 @@ class FRED_LoadImage_V5:
                     if os.path.isfile(full_path):
                         images_count += 1
 
-        return (output_image, output_mask, image_size_kb, width, height, quality_score, images_count, snr_value, path, filename_text)
+        return (output_image, output_mask, image_size_kb, width, height, quality_score, images_count, snr_value, path, filename_text, HELP_MESSAGE)
 
     def return_default_image(self):
         # default_image = torch.zeros((1, 3, 64, 64), dtype=torch.float32)
