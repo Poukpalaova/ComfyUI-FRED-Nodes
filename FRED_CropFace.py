@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-import cv2  # Import OpenCV for face detection
+import cv2
 from facexlib.detection import RetinaFace
 from .utils import tensor2cv, cv2tensor, hex2bgr, BBox
 
@@ -12,44 +12,51 @@ class FRED_CropFace:
                 "model": ("RETINAFACE",),
                 "image": ("IMAGE",),
                 "confidence": ("FLOAT", {"default": 0.8, "min": 0, "max": 1}),
-                "margin_factor": ("FLOAT", {"default": 1.0, "min": 0.0}),  # Margin as a factor of face width
-                "face_id": ("INT", {"default": 0, "min": 0}),  # ID of the face to crop
+                "margin_factor": ("FLOAT", {"default": 1.0, "min": 0.0}),
+                "face_id": ("INT", {"default": 0, "min": 0}),
+                "max_size": ("INT", {"default": 1536, "min": 256}),  # Maximum size for detection
             }
         }
 
-    RETURN_TYPES = (
-        "IMAGE", "IMAGE", "BBOX", "FLOAT"  # Added face pixel ratio
-    )
+    RETURN_TYPES = ("IMAGE", "IMAGE", "BBOX", "FLOAT")
     RETURN_NAMES = ("face_image", "preview", "bbox", "face_pixel_ratio")
     FUNCTION = "crop"
     CATEGORY = "FRED/image/postprocessing"
 
-    def crop(self, model: RetinaFace, image: torch.Tensor, confidence: float, margin_factor: float, face_id: int):
-        # Convert image to OpenCV format
-        img_cv = tensor2cv(image)  # Function to convert Tensor to OpenCV image (BGR)
+    def crop(self, model: RetinaFace, image: torch.Tensor, confidence: float, margin_factor: float, face_id: int, max_size: int):
+        img_cv = tensor2cv(image)
         img_height, img_width = img_cv.shape[:2]
 
-        # Face detection
+        # Resize image for face detection if it's too large
+        scale = 1
+        if max(img_width, img_height) > max_size:
+            scale = max_size / max(img_width, img_height)
+            img_resized = cv2.resize(img_cv, (int(img_width * scale), int(img_height * scale)))
+        else:
+            img_resized = img_cv
+
+        # Face detection on resized image
         with torch.no_grad():
-            # bboxes: list of [x0, y0, x1, y1, confidence_score, five points (x, y)]
-            bboxes = model.detect_faces(img_cv, confidence)
+            bboxes = model.detect_faces(img_resized, confidence)
 
         if len(bboxes) == 0:
             print("WARNING! No face detected. Please adjust confidence or change picture. Input picture will be sent to output.")
-            return image, image, np.zeros((4,)), 0.0  # Return the input image as output
+            return image, image, np.zeros((4,)), 0.0
 
-        # Sort detected faces by x-coordinate (left to right)
-        bboxes = sorted(bboxes, key=lambda b: b[0]) 
+        # Scale bounding boxes back to original size
+        bboxes = [(x0/scale, y0/scale, x1/scale, y1/scale, score, *[p/scale for p in points])
+                  for (x0, y0, x1, y1, score, *points) in bboxes]
 
-        # Handle face_id out of range
+        bboxes = sorted(bboxes, key=lambda b: b[0])
+
         if face_id >= len(bboxes):
             print(f"ERROR! Invalid face_id: {face_id}. Total detected faces: {len(bboxes)}. Using face_id = 0.")
             face_id = 0
 
-        # Preview detected faces
+        # Create preview on original image
         detection_preview = self.visualize_detection(img_cv, bboxes)
 
-        # Add margin and make the box square
+        # Add margin and make square on original image size
         bboxes = [
             self.add_margin_and_make_square(
                 (int(min(x0, x1)), int(min(y0, y1)), int(abs(x1 - x0)), int(abs(y1 - y0))),
@@ -59,17 +66,15 @@ class FRED_CropFace:
             ) for (x0, y0, x1, y1, *_) in bboxes
         ]
 
-        # Update preview with margins
         detection_preview = self.visualize_margin(detection_preview, bboxes)
 
-        # Crop the selected face
+        # Crop the selected face from the original image
         selected_bbox = bboxes[face_id]
         x, y, w, h = selected_bbox
-        cropped_face = image[0, y:y + h, x:x + w, :].unsqueeze(0) 
+        cropped_face = image[0, y:y + h, x:x + w, :].unsqueeze(0)
 
-        # Calculate the ratio of pixels occupied by the face
-        face_pixels = w * h  # Area of the selected face
-        total_pixels = img_height * img_width  # Total number of pixels in the image
+        face_pixels = w * h
+        total_pixels = img_height * img_width
         face_pixel_ratio = (face_pixels / total_pixels) * 100 if total_pixels > 0 else 0.0
 
         return cropped_face, cv2tensor(detection_preview), selected_bbox, face_pixel_ratio

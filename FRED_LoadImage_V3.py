@@ -132,7 +132,8 @@ class FRED_LoadImage_V3:
             image = torch.from_numpy(image)[None,]
             if 'A' in i.getbands():
                 mask = np.array(i.getchannel('A')).astype(np.float32) / 255.0
-                mask = 1. - torch.from_numpy(mask)
+                # mask = 1. - torch.from_numpy(mask)
+                mask = torch.from_numpy(mask)
             else:
                 mask = torch.zeros((64, 64), dtype=torch.float32, device="cpu")
             output_images.append(image)
