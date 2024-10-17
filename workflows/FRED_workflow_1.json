@@ -1,0 +1,1302 @@
+{
+  "last_node_id": 36,
+  "last_link_id": 35,
+  "nodes": [
+    {
+      "id": 15,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1324,
+        "1": 50
+      },
+      "size": {
+        "0": 352.83856201171875,
+        "1": 535.21533203125
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [],
+      "title": "Cropped image",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 9,
+      "type": "MaskPreview+",
+      "pos": {
+        "0": 363,
+        "1": 37
+      },
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 11
+        }
+      ],
+      "outputs": [],
+      "title": "Mask",
+      "properties": {
+        "Node name for S&R": "MaskPreview+"
+      }
+    },
+    {
+      "id": 17,
+      "type": "FRED_LoadRetinaFace",
+      "pos": {
+        "0": 601,
+        "1": 640
+      },
+      "size": {
+        "0": 277.20001220703125,
+        "1": 26
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "RETINAFACE",
+          "links": [
+            16
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FRED_LoadRetinaFace"
+      }
+    },
+    {
+      "id": 5,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 950,
+        "1": 50
+      },
+      "size": [
+        352.83856573993603,
+        535.2153529312135
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 5
+        }
+      ],
+      "outputs": [],
+      "title": "Crop preview",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 18,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 964.1991577148438,
+        "1": 687.0499877929688
+      },
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 19,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1289.962646484375,
+        "1": 675.1317749023438
+      },
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 19
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 20,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 953,
+        "1": 983
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "46.079583815586425"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 1728.5513916015625,
+        "1": 53.797428131103516
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "1.1310751104565537"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "FRED_AutoCropImage_SDXL_Ratio_V4",
+      "pos": {
+        "0": 600,
+        "1": 50
+      },
+      "size": {
+        "0": 343.84197998046875,
+        "1": 538
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "mask_optional",
+          "type": "MASK",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "modified_image",
+          "type": "IMAGE",
+          "links": [
+            15
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "links": [
+            5
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "modified_mask",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "scale_factor",
+          "type": "FLOAT",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "output_width",
+          "type": "INT",
+          "links": [
+            22
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "output_height",
+          "type": "INT",
+          "links": [
+            23
+          ],
+          "shape": 3,
+          "slot_index": 5
+        },
+        {
+          "name": "SDXL_width",
+          "type": "INT",
+          "links": [
+            24
+          ],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "SDXL_height",
+          "type": "INT",
+          "links": [
+            25
+          ],
+          "shape": 3,
+          "slot_index": 7
+        },
+        {
+          "name": "sd_aspect_ratios",
+          "type": "STRING",
+          "links": [
+            26
+          ],
+          "shape": 3,
+          "slot_index": 8
+        },
+        {
+          "name": "help",
+          "type": "STRING",
+          "links": [
+            27
+          ],
+          "shape": 3,
+          "slot_index": 9
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FRED_AutoCropImage_SDXL_Ratio_V4"
+      },
+      "widgets_values": [
+        true,
+        "Auto_find_SDXL_resolution",
+        1024,
+        1024,
+        true,
+        0,
+        0,
+        false,
+        "bilinear",
+        "area",
+        1.5,
+        false,
+        "#3d60c7"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 1728,
+        "1": 183
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "1358"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 1725,
+        "1": 322
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "1358"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 1723,
+        "1": 456
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "1024"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 1718,
+        "1": 585
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "1024"
+      ]
+    },
+    {
+      "id": 27,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 1716,
+        "1": 708
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "SDXL - 1:1 square 1024x1024 - (1024x1024)"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 1718,
+        "1": 849
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "This node automatically crops and resizes images to fit SDXL aspect ratios.\n\nKey features:\n1. Auto-find SDXL resolution: Set to True to automatically find the closest SDXL ratio for your image.\n2. Custom aspect ratios: Choose from predefined SDXL ratios or set a custom width and height.\n3. Cropping options: \n   - Crop from center or adjust using crop_x_in_Percent and crop_y_in_Percent.\n   - Option to pre-crop based on an input mask.\n4. Resizing:\n   - Option to resize the cropped image to the target SDXL dimensions.\n   - Different interpolation modes for upscaling and downscaling.\n5. Prescaling: Apply a prescale factor to increase or decrease the final image size.\n6. Preview: Generates a preview image showing the cropped area.\n7. Mask handling: Can process and modify input masks alongside the image.\n\nUse 'Auto_find_SDXL_resolution' for automatic ratio selection, or choose a specific ratio. \nAdjust cropping, resizing, and scaling options to fine-tune the output. \nThe node provides both the processed image and a visual preview of the changes."
+      ]
+    },
+    {
+      "id": 30,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 150,
+        "1": 900
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "2304"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 150,
+        "1": 1000
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "2304"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 150,
+        "1": 1150
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "42.900000000000006"
+      ]
+    },
+    {
+      "id": 34,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 150,
+        "1": 1400
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "20.054135949177805"
+      ]
+    },
+    {
+      "id": 29,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 150,
+        "1": 750
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "6109"
+      ]
+    },
+    {
+      "id": 33,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 150,
+        "1": 1300
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "0"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 150,
+        "1": 1550
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        ""
+      ]
+    },
+    {
+      "id": 1,
+      "type": "FRED_LoadImage_V5",
+      "pos": {
+        "0": 3,
+        "1": 31
+      },
+      "size": {
+        "0": 330,
+        "1": 618
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1,
+            17
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            2,
+            11
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "IMAGE_SIZE_KB",
+          "type": "INT",
+          "links": [
+            28
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "WIDTH",
+          "type": "INT",
+          "links": [
+            29
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "HEIGHT",
+          "type": "INT",
+          "links": [
+            30
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "QUALITY_SCORE",
+          "type": "INT",
+          "links": [
+            31
+          ],
+          "shape": 3,
+          "slot_index": 5
+        },
+        {
+          "name": "IMAGES QUANTITY IN FOLDER",
+          "type": "INT",
+          "links": [
+            32
+          ],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "SNR",
+          "type": "FLOAT",
+          "links": [
+            33
+          ],
+          "shape": 3,
+          "slot_index": 7
+        },
+        {
+          "name": "FOLDER_PATH",
+          "type": "STRING",
+          "links": [
+            34
+          ],
+          "shape": 3,
+          "slot_index": 8
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": [
+            35
+          ],
+          "shape": 3,
+          "slot_index": 9
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FRED_LoadImage_V5"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-1284255.099999994.png [input]",
+        "no_folder",
+        11416,
+        "randomize",
+        "",
+        false,
+        "image",
+        "false"
+      ]
+    },
+    {
+      "id": 36,
+      "type": "DisplayAny",
+      "pos": {
+        "0": 145,
+        "1": 1672
+      },
+      "size": {
+        "0": 315,
+        "1": 100
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "clipspace-mask-1284255.099999994"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "FRED_CropFace",
+      "pos": {
+        "0": 603,
+        "1": 715
+      },
+      "size": {
+        "0": 315,
+        "1": 190
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "RETINAFACE",
+          "link": 16
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "face_image",
+          "type": "IMAGE",
+          "links": [
+            19
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "bbox",
+          "type": "BBOX",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "face_pixel_ratio",
+          "type": "FLOAT",
+          "links": [
+            20
+          ],
+          "shape": 3,
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FRED_CropFace"
+      },
+      "widgets_values": [
+        0.8,
+        0.2,
+        0,
+        1536
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      1,
+      1,
+      2,
+      1,
+      "MASK"
+    ],
+    [
+      5,
+      2,
+      1,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      1,
+      1,
+      9,
+      0,
+      "MASK"
+    ],
+    [
+      15,
+      2,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      16,
+      17,
+      0,
+      16,
+      0,
+      "RETINAFACE"
+    ],
+    [
+      17,
+      1,
+      0,
+      16,
+      1,
+      "IMAGE"
+    ],
+    [
+      18,
+      16,
+      1,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      16,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      20,
+      16,
+      3,
+      20,
+      0,
+      "*"
+    ],
+    [
+      21,
+      2,
+      3,
+      22,
+      0,
+      "*"
+    ],
+    [
+      22,
+      2,
+      4,
+      23,
+      0,
+      "*"
+    ],
+    [
+      23,
+      2,
+      5,
+      24,
+      0,
+      "*"
+    ],
+    [
+      24,
+      2,
+      6,
+      25,
+      0,
+      "*"
+    ],
+    [
+      25,
+      2,
+      7,
+      26,
+      0,
+      "*"
+    ],
+    [
+      26,
+      2,
+      8,
+      27,
+      0,
+      "*"
+    ],
+    [
+      27,
+      2,
+      9,
+      28,
+      0,
+      "*"
+    ],
+    [
+      28,
+      1,
+      2,
+      29,
+      0,
+      "*"
+    ],
+    [
+      29,
+      1,
+      3,
+      30,
+      0,
+      "*"
+    ],
+    [
+      30,
+      1,
+      4,
+      31,
+      0,
+      "*"
+    ],
+    [
+      31,
+      1,
+      5,
+      32,
+      0,
+      "*"
+    ],
+    [
+      32,
+      1,
+      6,
+      33,
+      0,
+      "*"
+    ],
+    [
+      33,
+      1,
+      7,
+      34,
+      0,
+      "*"
+    ],
+    [
+      34,
+      1,
+      8,
+      35,
+      0,
+      "*"
+    ],
+    [
+      35,
+      1,
+      9,
+      36,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5730855330116822,
+      "offset": [
+        40.417858479786055,
+        166.56169068864824
+      ]
+    }
+  },
+  "version": 0.4
+}
