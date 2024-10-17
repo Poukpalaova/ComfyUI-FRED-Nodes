@@ -56,12 +56,16 @@ class FRED_LoadImage_V5:
                 filename = "direct_image_input"
             else:
                 raise ValueError("Invalid image input type.")
-
+            print("img.mode:", img.mode)
             if img.mode == 'RGBA':
                 # Split the RGBA image into RGB and alpha
                 rgb_image = img.convert('RGB')
                 alpha_channel = img.split()[3]
                 
+                # Vérifier si le masque est principalement blanc ou noir
+                alpha_array = np.array(alpha_channel)
+                is_inverted = np.mean(alpha_array) > 127
+    
                 # Process RGB image
                 image = np.array(rgb_image).astype(np.float32) / 255.0
                 image = torch.from_numpy(image)[None,]
@@ -69,13 +73,20 @@ class FRED_LoadImage_V5:
                 # Process alpha channel as mask
                 mask = np.array(alpha_channel).astype(np.float32) / 255.0
                 # mask = 1. - torch.from_numpy(mask)
+                # mask = torch.from_numpy(mask)
+                if is_inverted:
+                    # Si le masque est principalement blanc, l'inverser
+                    mask = 1. - mask
+    
                 mask = torch.from_numpy(mask)
             else:
                 # Process non-RGBA images as before
                 image = np.array(img.convert("RGB")).astype(np.float32) / 255.0
                 image = torch.from_numpy(image)[None,]
-                mask = torch.zeros((img.size[1], img.size[0]), dtype=torch.float32, device="cpu")
-            
+                mask = 1. - torch.ones((img.size[1], img.size[0]), dtype=torch.float32)
+                # mask = np.array(img.getchannel('A')).astype(np.float32) / 255.0
+                # mask = 1. - torch.from_numpy(mask)
+
             output_image = image
             output_mask = mask.unsqueeze(0)
 

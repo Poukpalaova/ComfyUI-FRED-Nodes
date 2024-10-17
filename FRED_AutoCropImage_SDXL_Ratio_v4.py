@@ -3,9 +3,11 @@ from PIL import Image
 import numpy as np
 import torch
 from torchvision.transforms import InterpolationMode
-import torchvision.transforms.functional as F
+import torch.nn.functional as F
+# import torchvision.transforms.functional as F
 import comfy.utils
 from comfy_extras.nodes_mask import ImageCompositeMasked
+# from .imagefunc import Hex_to_RGB
 
 # SDXL aspect ratios
 ASPECT_RATIOS_SDXL = [
@@ -21,21 +23,27 @@ ASPECT_RATIOS_SDXL = [
 ]
 
 # Define a help message
-HELP_MESSAGE = """Put Auto_find_SDXL_resolution to True if you want
-the system to find the closest SDXL ratio that fit in your picture.
-If you put it to off, choose a ratio or use Custom to put your custom crop value.
-The image can be resized to the SDXL selected or find ratio with a mode of your choice.
-If you put a prescale_factor, it will multiply by the scale_factor
-If you want to crop from the center, set crop_from_center to True
-otherwise, you can adjust crop_x_in_Percent and crop_y_in_Percent to change the cropping area
-starting from the top left corner."""
+HELP_MESSAGE = """This node automatically crops and resizes images to fit SDXL aspect ratios.
+
+Key features:
+1. Auto-find SDXL resolution: Set to True to automatically find the closest SDXL ratio for your image.
+2. Custom aspect ratios: Choose from predefined SDXL ratios or set a custom width and height.
+3. Cropping options: 
+   - Crop from center or adjust using crop_x_in_Percent and crop_y_in_Percent.
+   - Option to pre-crop based on an input mask.
+4. Resizing:
+   - Option to resize the cropped image to the target SDXL dimensions.
+   - Different interpolation modes for upscaling and downscaling.
+5. Prescaling: Apply a prescale factor to increase or decrease the final image size.
+6. Preview: Generates a preview image showing the cropped area.
+7. Mask handling: Can process and modify input masks alongside the image.
+
+Use 'Auto_find_SDXL_resolution' for automatic ratio selection, or choose a specific ratio. 
+Adjust cropping, resizing, and scaling options to fine-tune the output. 
+The node provides both the processed image and a visual preview of the changes."""
 
 class FRED_AutoCropImage_SDXL_Ratio_v4:
-    '''
-    Custom node for ComfyUI that which automatically
-    crops an image to fit the SDXL aspect ratio.
-    '''
-    
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -53,6 +61,7 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
                 "resize_mode_if_downscale": (["bicubic", "bilinear", "nearest", "nearest-exact", "area"], {"default": "area"}),
                 "prescale_factor": ("FLOAT", {"default": 1.5, "min": 0.1, "max": 8.0, "step": 0.1}),
                 "include_prescale_if_resize": ("BOOLEAN", {"default": False},),
+                "preview_mask_color": ("COLOR", {"default": "#FFFFFF"},),
             },
             "optional": {
                 "mask_optional": ("MASK",),
@@ -79,7 +88,7 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
     def run(self, image, Precrop_from_input_mask, aspect_ratio, custom_width, custom_height,
             crop_from_center, crop_x_in_Percent, crop_y_in_Percent, resize_image,
             resize_mode_if_upscale, resize_mode_if_downscale, prescale_factor,
-            include_prescale_if_resize, mask_optional=None):
+            include_prescale_if_resize, preview_mask_color, mask_optional=None):
         
         _, original_height, original_width, _ = image.shape
         modified_image: torch.Tensor
@@ -116,8 +125,9 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
                                            if a["name"] == aspect_ratio][0]
 
             if sdxl_width != original_width and sdxl_height != original_height:
-                cropped_image, preview = self.crop_image_to_ratio(image, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent)
-                cropped_mask = self.crop_image_to_ratio(mask, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent)[0]
+                cropped_image, preview = self.crop_image_to_ratio(image, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent, False, preview_mask_color)
+                # cropped_mask = self.crop_image_to_ratio(mask, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent, True)[0]
+                cropped_mask = self.crop_image_to_ratio(mask, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent, True, preview_mask_color)
             else:
                 cropped_image = image
                 cropped_mask = mask
@@ -171,50 +181,12 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
         mask_np = mask.squeeze().cpu().numpy()
         rows = np.any(mask_np, axis=1)
         cols = np.any(mask_np, axis=0)
+        if not np.any(rows) or not np.any(cols):
+            # Le masque est entièrement noir, retourner les dimensions complètes de l'image
+            return 0, 0, mask_np.shape[1] - 1, mask_np.shape[0] - 1
         y_min, y_max = np.where(rows)[0][[0, -1]]
         x_min, x_max = np.where(cols)[0][[0, -1]]
         return x_min, y_min, x_max, y_max
-
-    # def generate_preview(self, original_image, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent):
-        # # Convert the original image to numpy
-        # original_np = original_image[0].cpu().numpy().transpose(1, 2, 0)
-        # original_np = (original_np * 255).astype(np.uint8)
-
-        # # Get the dimensions of the original image
-        # oh, ow = original_np.shape[:2]
-
-        # # Calculate the coordinates of the rectangle
-        # if crop_from_center:
-            # x = (ow - sdxl_width) // 2
-            # y = (oh - sdxl_height) // 2
-        # else:
-            # x = int(crop_x_in_Percent * ow / 100)
-            # y = int(crop_y_in_Percent * oh / 100)
-
-        # # Ensure the coordinates don't exceed the image boundaries
-        # x = max(0, min(x, ow - sdxl_width))
-        # y = max(0, min(y, oh - sdxl_height))
-
-        # # Create a copy of the original image to draw on
-        # preview = original_np.copy()
-
-        # # Create a semi-transparent blue overlay
-        # overlay = preview.copy()
-        # cv2.rectangle(overlay, (x, y), (x + sdxl_width, y + sdxl_height), (0, 0, 255), -1)
-
-        # # Apply the overlay
-        # cv2.addWeighted(overlay, 0.5, preview, 0.5, 0, preview)
-
-        # # Draw the rectangle border
-        # cv2.rectangle(preview, (x, y), (x + sdxl_width, y + sdxl_height), (0, 0, 255), 5)
-
-        # # Add text to indicate the crop size
-        # cv2.putText(preview, f"Crop: {sdxl_width}x{sdxl_height}", (x + 5, y + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
-
-        # # Convert the preview to a PyTorch tensor
-        # preview_tensor = torch.from_numpy(preview.transpose(2, 0, 1)).float() / 255.0
-
-        # return preview
 
     def resize_image(self, cropped_image, resize_interpolation_mode, width, height, crop_from_center):
         samples = cropped_image.movedim(-1,1)
@@ -244,7 +216,7 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
 
         return found_sdxl_width, found_sdxl_height, found_sd_aspect_ratios
 
-    def crop_image_to_ratio(self, image, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent):
+    def crop_image_to_ratio(self, image, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent, is_mask, preview_mask_color):
         if len(image.shape) == 4:
             _, original_height, original_width, _ = image.shape
         elif len(image.shape) == 3:
@@ -282,85 +254,122 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
         if y_start+new_height > original_height:
             y_start = original_height - new_height
 
-        # Create a preview base with the original image dimensions
-        preview = image.clone() if len(image.shape) == 4 else image.clone().unsqueeze(0)
+        if is_mask:
+            # print("is_mask:", is_mask)
+            # print("mask shape:", image.shape)
+            # Crop the image
+            if len(image.shape) == 4:
+                cropped_image = image[:, y_start:y_start + new_height, x_start:x_start + new_width, :]
+            elif len(image.shape) == 3:
+                cropped_image = image[y_start:y_start + new_height, x_start:x_start + new_width]
+            else:
+                raise ValueError(f"Unexpected image shape: {image.shape}")
 
-        # Create an overlay mask for the uncropped regions
-        overlay_mask = torch.zeros((original_height, original_width), dtype=torch.float32, device=image.device)
-
-        if crop_from_center:
-            if x_start > 0:  # Left uncropped region
-                overlay_mask[:, :x_start] = 1
-            if x_start + new_width < original_width:  # Right uncropped region
-                overlay_mask[:, x_start + new_width:] = 1
-            if y_start > 0:  # Top uncropped region
-                overlay_mask[:y_start, :] = 1
-            if y_start + new_height < original_height:  # Bottom uncropped region
-                overlay_mask[y_start + new_height:, :] = 1
+            return cropped_image
         else:
-            if y_start > 0:  # Top uncropped region
-                overlay_mask[:y_start, :] = 1
-            elif y_start + new_height < original_height:  # Bottom uncropped region
-                overlay_mask[y_start + new_height:, :] = 1
+            # Convertir la couleur HEX en RGB
+            preview_color = torch.tensor(self.Hex_to_RGB(preview_mask_color), dtype=torch.uint8, device=image.device)
 
-        # Create overlay_mask_image with the same format as preview
-        overlay_mask_image = 1. - overlay_mask.unsqueeze(0).unsqueeze(-1).expand(-1, -1, -1, 3)
+            # print("is_mask:", is_mask)
+            # Create a preview base with the original image dimensions
+            preview = image.clone() if len(image.shape) == 4 else image.clone().unsqueeze(0)
 
-        # Ensure overlay_mask_image is a float tensor
-        overlay_mask_image = overlay_mask_image.float()
+            # Create a white overlay image
+            # overlay_image = torch.full((1, original_height, original_width, 3), 255, dtype=torch.uint8, device=image.device)
+            overlay_image = torch.full((1, original_height, original_width, 3), 255, dtype=torch.uint8, device=image.device)
 
-        # Make sure preview is also a float tensor
-        preview = preview.float()
+            if crop_from_center:
+                # Horizontal bands (left and right)
+                if x_start > 0:  # Left uncropped region
+                    overlay_image[:, :, :x_start, :] = preview_color
+                if x_start + new_width < original_width:  # Right uncropped region
+                    overlay_image[:, :, x_start + new_width:, :] = preview_color
+
+                # Vertical bands (top and bottom)
+                if y_start > 0:  # Top uncropped region
+                    overlay_image[:, :y_start, x_start:x_start+new_width, :] = preview_color
+                if y_start + new_height < original_height:  # Bottom uncropped region
+                    overlay_image[:, y_start + new_height:, x_start:x_start+new_width, :] = preview_color
+            else:
+                # For non-centered crop, we'll assume it's always from the top
+                if y_start > 0:  # Top uncropped region
+                    overlay_image[:, :y_start, :, :] = preview_color
+                elif y_start + new_height < original_height:  # Bottom uncropped region
+                    overlay_image[:, y_start + new_height:, :, :] = preview_color
+
+            # Convert to float and normalize to 0-1 range if needed for further processing
+            overlay_image_float = overlay_image.float() / 255.0
+
+            # Make sure preview is also a float tensor
+            preview_float = preview.float()
+
+            # print("overlay_image_float shape:", overlay_image_float.shape)
+            # print("preview_float shape:", preview_float.shape)
+
+            # blend_preview = self.blend_images(preview, overlay_mask_image, 0.7)
+            blend_preview = self.blend_images(preview_float, overlay_image_float, 0.7)
+
+            # print("blended preview shape:", blend_preview.shape)
+            blend_preview_np = (blend_preview[0].cpu().numpy() * 255).astype(np.uint8)
+            # print("preview_color:", preview_color.tolist())
+            # print("preview_color:", (int(preview_color[0]), int(preview_color[1]), int(preview_color[2])))
+            
+            # Draw rectangle for the cropped region
+            cv2.rectangle(blend_preview_np, (x_start, y_start), (x_start + new_width, y_start + new_height), (int(preview_color[0]), int(preview_color[1]), int(preview_color[2])), 4)
+            blend_preview = torch.from_numpy(blend_preview_np).unsqueeze(0).float() / 255.0
+
+            # Crop the image
+            if len(image.shape) == 4:
+                cropped_image = image[:, y_start:y_start + new_height, x_start:x_start + new_width, :]
+            elif len(image.shape) == 3:
+                cropped_image = image[y_start:y_start + new_height, x_start:x_start + new_width]
+            else:
+                raise ValueError(f"Unexpected image shape: {image.shape}")
+
+            return cropped_image, blend_preview
         
-        # Ensure overlay_mask_image has the same shape as preview
-        # if preview.shape != overlay_mask_image.shape:
-            # overlay_mask_image = overlay_mask_image.expand(preview.shape[0], -1, -1, -1)
-        # preview = self.blend_images(preview, overlay_mask_image, 0.7, "multiply")
-        # print(f"Type of preview.size: {type(preview.size)}, Value: {preview.size}")
-        # size = tuple(preview.size) if not isinstance(preview.size, tuple) else preview.size
-        # multiply_color = Image.new("RGBA", size, (128, 128, 128, 255))
-        # blended = Image.composite(multiply_color, preview, overlay_mask_image)
+    def blend_images(self, image1: torch.Tensor, image2: torch.Tensor, blend_factor: float):
+        if image1.shape != image2.shape:
+            image2 = self.crop_and_resize(image2, image1.shape)
 
-        # Draw rectangle for the cropped region
-        cv2.rectangle(preview[0].cpu().numpy(), (x_start, y_start), (x_start + new_width, y_start + new_height), (0, 0, 255), 4)
-
-        # Crop the image
-        if len(image.shape) == 4:
-            cropped_image = image[:, y_start:y_start + new_height, x_start:x_start + new_width, :]
-        elif len(image.shape) == 3:
-            cropped_image = image[y_start:y_start + new_height, x_start:x_start + new_width]
-        else:
-            raise ValueError(f"Unexpected image shape: {image.shape}")
-
-        return cropped_image, overlay_mask_image
-        
-    # def blend_images(self, image1: torch.Tensor, image2: torch.Tensor, blend_factor: float, blend_mode: str):
-        # image2 = image2.to(image1.device)
-        # if image1.shape != image2.shape:
-            # image2 = image2.permute(0, 3, 1, 2)
-            # image2 = comfy.utils.common_upscale(image2, image1.shape[2], image1.shape[1], upscale_method='bicubic', crop='center')
-            # image2 = image2.permute(0, 2, 3, 1)
-
-        # blended_image = self.blend_mode(image1, image2, blend_mode)
-        # blended_image = image1 * (1 - blend_factor) + blended_image * blend_factor
-        # blended_image = torch.clamp(blended_image, 0, 1)
+        blended_image = image1 * image2
+        blended_image = image1 * (1 - blend_factor) + blended_image * blend_factor
+        blended_image = torch.clamp(blended_image, 0, 1)
         # return (blended_image,)
+        return blended_image
         
-    # def blend_mode(self, img1, img2, mode):
-        # if mode == "normal":
-            # return img2
-        # elif mode == "multiply":
-            # return img1 * img2
-        # elif mode == "screen":
-            # return 1 - (1 - img1) * (1 - img2)
-        # elif mode == "overlay":
-            # return torch.where(img1 <= 0.5, 2 * img1 * img2, 1 - 2 * (1 - img1) * (1 - img2))
-        # elif mode == "soft_light":
-            # return torch.where(img2 <= 0.5, img1 - (1 - 2 * img2) * img1 * (1 - img1), img1 + (2 * img2 - 1) * (self.g(img1) - img1))
-        # elif mode == "difference":
-            # return img1 - img2
-        # else:
-            # raise ValueError(f"Unsupported blend mode: {mode}")
+    def crop_and_resize(self, img: torch.Tensor, target_shape: tuple):
+        batch_size, img_h, img_w, img_c = img.shape
+        _, target_h, target_w, _ = target_shape
+        img_aspect_ratio = img_w / img_h
+        target_aspect_ratio = target_w / target_h
+
+        # Crop center of the image to the target aspect ratio
+        if img_aspect_ratio > target_aspect_ratio:
+            new_width = int(img_h * target_aspect_ratio)
+            left = (img_w - new_width) // 2
+            img = img[:, :, left:left + new_width, :]
+        else:
+            new_height = int(img_w / target_aspect_ratio)
+            top = (img_h - new_height) // 2
+            img = img[:, top:top + new_height, :, :]
+
+        # Resize to target size
+        img = img.permute(0, 3, 1, 2) # Torch wants (B, C, H, W) we use (B, H, W, C)
+        img = F.interpolate(img, size=(target_h, target_w), mode='bilinear', align_corners=False)
+        img = img.permute(0, 2, 3, 1)
+
+        return img
+        
+    def Hex_to_RGB(self, inhex:str) -> tuple:
+        if not inhex.startswith('#'):
+            raise ValueError(f'Invalid Hex Code in {inhex}')
+        else:
+            rval = inhex[1:3]
+            gval = inhex[3:5]
+            bval = inhex[5:]
+            rgb = (int(rval, 16), int(gval, 16), int(bval, 16))
+        return tuple(rgb)
 
 # Dictionary mapping node names to their corresponding classes
 NODE_CLASS_MAPPINGS = {
