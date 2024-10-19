@@ -110,6 +110,7 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
                 _, original_height, original_width, _ = image.shape
 
         if aspect_ratio == "no_crop":
+            preview = image
             cropped_image = image
             cropped_mask = mask
             sdxl_width = original_width
@@ -129,6 +130,7 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
                 # cropped_mask = self.crop_image_to_ratio(mask, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent, True)[0]
                 cropped_mask = self.crop_image_to_ratio(mask, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent, True, preview_mask_color)
             else:
+                preview = image
                 cropped_image = image
                 cropped_mask = mask
                 sdxl_width = original_width
