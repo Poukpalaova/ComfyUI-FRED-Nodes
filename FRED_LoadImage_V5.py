@@ -303,11 +303,11 @@ class FRED_LoadImage_V5:
                 return sha
             return float("NaN")
 
-    # @classmethod
-    # def VALIDATE_INPUTS(s, image):
-        # if not folder_paths.exists_annotated_filepath(image):
-            # return "Invalid image file: {}".format(image)
-        # return True
+    @classmethod
+    def VALIDATE_INPUTS(s, image):
+        if not folder_paths.exists_annotated_filepath(image):
+            return "Invalid image file: {}".format(image)
+        return True
 
 NODE_CLASS_MAPPINGS = {
     "FRED_LoadImage_V5": FRED_LoadImage_V5
