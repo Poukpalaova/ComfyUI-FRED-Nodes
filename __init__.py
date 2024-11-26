@@ -17,7 +17,9 @@ node_list = [
     "FRED_JoinImages_v1", 
     "FRED_LoadRetinaFace", 
     "FRED_PreviewOnly", 
-    "FRED_photo_prompt"
+    "FRED_photo_prompt", 
+    "FRED_LoraInfos",
+    "FRED_TextMultiline"
 ]
 
 NODE_CLASS_MAPPINGS = {}

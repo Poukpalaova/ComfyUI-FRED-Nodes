@@ -224,7 +224,7 @@
             ]
         }
     ],
-        "indoor_background": [
+    "indoor_background": [
         {
             "name": "Bedroom",
             "description": "None",

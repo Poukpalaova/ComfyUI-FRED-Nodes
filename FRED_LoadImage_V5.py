@@ -289,6 +289,7 @@ class FRED_LoadImage_V5:
     @classmethod
     def IS_CHANGED(cls, **kwargs):
         if kwargs['mode'] == 'no_folder':
+            print("is changed saw a NO folder mode")
             return float("NaN")
         else:
             # fl = FRED_LoadImage_V5.BatchImageLoader(kwargs['path'])
@@ -296,6 +297,7 @@ class FRED_LoadImage_V5:
             # image = os.path.join(kwargs['path'], filename)
             # sha = get_sha256(image)
             # return sha
+            print("is changed saw a folder mode")
             fl = FRED_LoadImage_V5.BatchImageLoader(kwargs['path'])
             if len(fl.image_paths) > 0:
                 image = fl.image_paths[0]  # Prend le premier fichier image
@@ -307,8 +309,8 @@ class FRED_LoadImage_V5:
     def VALIDATE_INPUTS(s, image):
         if not folder_paths.exists_annotated_filepath(image):
             return "Invalid image file: {}".format(image)
-
         return True
+
 NODE_CLASS_MAPPINGS = {
     "FRED_LoadImage_V5": FRED_LoadImage_V5
 }

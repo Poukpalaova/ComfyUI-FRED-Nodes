@@ -203,6 +203,52 @@ const photo_data = {
             ]
         }
     ],
+    "outdoor_background": [
+        {
+            "name": "Forest",
+            "description": "None",
+            "images": [
+                "504.jpg"
+            ]
+        },
+        {
+            "name": "Mountain",
+            "description": "None",
+            "images": [
+                "504.jpg"
+            ]
+        },
+        {
+            "name": "Field",
+            "description": "None",
+            "images": [
+                "504.jpg"
+            ]
+        }
+    ],
+    "indoor_background": [
+        {
+            "name": "Bedroom",
+            "description": "None",
+            "images": [
+                "504.jpg"
+            ]
+        },
+        {
+            "name": "Hotel room",
+            "description": "None",
+            "images": [
+                "504.jpg"
+            ]
+        },
+        {
+            "name": "Bathroom",
+            "description": "None",
+            "images": [
+                "504.jpg"
+            ]
+        }
+    ],
     "lighting": [
         {
             "name": "bounced lighting",
@@ -1165,7 +1211,7 @@ const photo_data = {
 
 
 // Inverts the scrolling of context menus
-const ActivateNodeType = "BilboXPhotoPrompt"
+const ActivateNodeType = "FRED_photo_prompt"
 const relPath = "/extensions/bilbox-comfyui"
 const id = "BilboX.PromptGeekContextMenuEnhance";
 
@@ -1232,7 +1278,8 @@ function update_preview(node)
 	const EMPTY_TEXT = "";
 	var style = dict.style == EMPTY_TEXT ? "" : `${dict.style} photo of `;
 	var framing = dict.framing == EMPTY_TEXT ? "" : `, ${dict.framing}`;
-    var setting_background = dict.setting_background == EMPTY_TEXT ? "" : `, ${dict.setting_background}`;
+	var indoor_background = dict.indoor_background == EMPTY_TEXT ? "" : `, ${dict.indoor_background}`;
+	var outdoor_background = dict.outdoor_background == EMPTY_TEXT ? "" : `, ${dict.outdoor_background}`;
 	var lighting = dict.lighting == EMPTY_TEXT ? "" : `, ${dict.lighting}`;
 	var camera_angle = dict.camera_angle == EMPTY_TEXT ? "" : `, ${dict.camera_angle}`;
 	var camera_properties = dict.camera_properties == EMPTY_TEXT ? "" : `, ${dict.camera_properties}`;
@@ -1241,7 +1288,7 @@ function update_preview(node)
 	var filters_effects = dict.filters_effects == EMPTY_TEXT ? "" : `, ${dict.filters_effects}`;
 	var photographers = dict.photographers == EMPTY_TEXT ? "" : `, in the style of ${dict.photographers}`;
 
-	var res=`${style}${dict.subject}${framing}${setting_background}${lighting}${camera_angle}${camera_properties}${film_types}${lenses}${filters_effects}${photographers}`;
+	var res=`${style}${dict.subject}${framing}${indoor_background}${outdoor_background}${lighting}${camera_angle}${camera_properties}${film_types}${lenses}${filters_effects}${photographers}`;
 	node.preview_widget.value = res;
     return res;
 }
