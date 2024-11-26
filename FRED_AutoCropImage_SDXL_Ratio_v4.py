@@ -61,7 +61,7 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
                 "resize_mode_if_downscale": (["bicubic", "bilinear", "nearest", "nearest-exact", "area"], {"default": "area"}),
                 "prescale_factor": ("FLOAT", {"default": 1.5, "min": 0.1, "max": 8.0, "step": 0.1}),
                 "include_prescale_if_resize": ("BOOLEAN", {"default": False},),
-                "preview_mask_color": ("COLOR", {"default": "#FFFFFF"},),
+                "preview_mask_color": ("COLOR", {"default": "#503555"},),
             },
             "optional": {
                 "mask_optional": ("MASK",),
@@ -151,7 +151,7 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
                 resize_interpolation_mode = resize_mode_if_downscale if sdxl_width < cropped_width else resize_mode_if_upscale
                 resized_image = self.resize_image(cropped_image, resize_interpolation_mode, sdxl_width, sdxl_height, crop_from_center_str)
                 resized_mask = torch.nn.functional.interpolate(mask.unsqueeze(0), size=(original_height, original_width), mode="nearest").squeeze(0).clamp(0.0, 1.0)
-                scale_factor = prescale_factor
+            scale_factor = prescale_factor
             modified_image = resized_image
             modified_mask = resized_mask
         else:
