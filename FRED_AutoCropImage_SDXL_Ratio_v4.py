@@ -50,7 +50,7 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
             "required": {
                 "image": ("IMAGE",),
                 "Precrop_from_input_mask": ("BOOLEAN", {"default": False},),
-                "aspect_ratio": (["custom"] + ["Auto_find_SDXL_resolution"] + [aspect_ratio["name"] for aspect_ratio in ASPECT_RATIOS_SDXL] + ["no_crop"],),
+                "aspect_ratio": (["custom"] + ["Auto_find_SDXL_resolution"] + [aspect_ratio["name"] for aspect_ratio in ASPECT_RATIOS_SDXL] + ["no_crop_to_ratio"],),
                 "custom_width": ("INT", {"default": 1024, "min": 64, "max": 8192}),
                 "custom_height": ("INT", {"default": 1024, "min": 64, "max": 8192}),
                 "crop_from_center": ("BOOLEAN", {"default": True},),
@@ -311,8 +311,12 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
             # blend_preview = self.blend_images(preview, overlay_mask_image, 0.7)
             blend_preview = self.blend_images(preview_float, overlay_image_float, 0.7)
 
-            # print("blended preview shape:", blend_preview.shape)
+            # Convertir en numpy array AVANT d'utiliser ascontiguousarray
             blend_preview_np = (blend_preview[0].cpu().numpy() * 255).astype(np.uint8)
+
+            # print("blended preview shape:", blend_preview.shape)
+            # blend_preview_np = (blend_preview[0].cpu().numpy() * 255).astype(np.uint8)
+            blend_preview_np = np.ascontiguousarray(blend_preview_np)
             # print("preview_color:", preview_color.tolist())
             # print("preview_color:", (int(preview_color[0]), int(preview_color[1]), int(preview_color[2])))
             
@@ -381,5 +385,3 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "FRED_AutoCropImage_SDXL_Ratio_V4": "👑 FRED_AutoCropImage_SDXL_Ratio_v4"
 }
-
-
