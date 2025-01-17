@@ -109,7 +109,7 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
                 mask = mask[:, y_min:y_max+1, x_min:x_max+1]
                 _, original_height, original_width, _ = image.shape
 
-        if aspect_ratio == "no_crop":
+        if aspect_ratio == "no_crop_to_ratio":
             preview = image
             cropped_image = image
             cropped_mask = mask
