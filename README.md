@@ -2,6 +2,13 @@
 
 This repository contains custom nodes for ComfyUI. This is a work in progress (WIP).
 
+## Installation
+open command windows in the custom_nodes and type:
+git clone https://github.com/Poukpalaova/ComfyUI-FRED-Nodes.git
+
+if you have a virtual installation, activate it and in the newly cloned custom_nodes type:
+pip install -r requirements.txt
+
 ## Nodes
 
 ### FRED_AutoCropImage_SDXL_Ratio_v4
