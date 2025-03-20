@@ -20,7 +20,7 @@ node_list = [
 #     "FRED_photo_prompt", 
     "FRED_LoraInfos",
     "FRED_TextMultiline",
-    "FRED_ColorQuantization",
+#     "FRED_ColorQuantization",
     "FRED_LoraList"
 ]
 
