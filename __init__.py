@@ -21,7 +21,7 @@ node_list = [
     "FRED_LoraInfos",
     "FRED_TextMultiline",
 #     "FRED_ColorQuantization",
-    "FRED_LoraList"
+#     "FRED_LoraList"
 ]
 
 NODE_CLASS_MAPPINGS = {}
