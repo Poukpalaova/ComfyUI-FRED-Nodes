@@ -89,7 +89,6 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
             crop_from_center, crop_x_in_Percent, crop_y_in_Percent, resize_image,
             resize_mode_if_upscale, resize_mode_if_downscale, prescale_factor,
             include_prescale_if_resize, preview_mask_color, mask_optional=None):
-        
         _, original_height, original_width, _ = image.shape
         modified_image: torch.Tensor
         sd_aspect_ratios = None
@@ -123,11 +122,10 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
                 sdxl_height = custom_height
             else:
                 sdxl_width, sdxl_height = [(a["width"], a["height"]) for a in ASPECT_RATIOS_SDXL
-                                           if a["name"] == aspect_ratio][0]
+                                            if a["name"] == aspect_ratio][0]
 
             if sdxl_width != original_width and sdxl_height != original_height:
                 cropped_image, preview = self.crop_image_to_ratio(image, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent, False, preview_mask_color)
-                # cropped_mask = self.crop_image_to_ratio(mask, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent, True)[0]
                 cropped_mask = self.crop_image_to_ratio(mask, sdxl_width, sdxl_height, crop_from_center, crop_x_in_Percent, crop_y_in_Percent, True, preview_mask_color)
             else:
                 preview = image
@@ -144,14 +142,14 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
                 sdxl_width_wfactor = int(sdxl_width * prescale_factor)
                 sdxl_height_wfactor = int(sdxl_height * prescale_factor)
                 resize_interpolation_mode = resize_mode_if_downscale if sdxl_width_wfactor < cropped_width else resize_mode_if_upscale
-                scale_factor = 1
+                scale_factor = prescale_factor
                 resized_image = self.resize_image(cropped_image, resize_interpolation_mode, sdxl_width_wfactor, sdxl_height_wfactor, crop_from_center_str)
-                resized_mask = torch.nn.functional.interpolate(mask.unsqueeze(0), size=(original_height, original_width), mode="nearest").squeeze(0).clamp(0.0, 1.0)
+                resized_mask = torch.nn.functional.interpolate(cropped_mask.unsqueeze(0), size=(sdxl_height_wfactor, sdxl_width_wfactor), mode="nearest").squeeze(0).clamp(0.0, 1.0)
             else:
                 resize_interpolation_mode = resize_mode_if_downscale if sdxl_width < cropped_width else resize_mode_if_upscale
+                scale_factor = prescale_factor
                 resized_image = self.resize_image(cropped_image, resize_interpolation_mode, sdxl_width, sdxl_height, crop_from_center_str)
-                resized_mask = torch.nn.functional.interpolate(mask.unsqueeze(0), size=(original_height, original_width), mode="nearest").squeeze(0).clamp(0.0, 1.0)
-            scale_factor = prescale_factor
+                resized_mask = torch.nn.functional.interpolate(cropped_mask.unsqueeze(0), size=(sdxl_height, sdxl_width), mode="nearest").squeeze(0).clamp(0.0, 1.0)
             modified_image = resized_image
             modified_mask = resized_mask
         else:
@@ -385,3 +383,5 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "FRED_AutoCropImage_SDXL_Ratio_V4": "👑 FRED_AutoCropImage_SDXL_Ratio_v4"
 }
+
+

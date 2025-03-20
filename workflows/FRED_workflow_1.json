@@ -21,10 +21,10 @@
         {
           "name": "MODEL",
           "type": "RETINAFACE",
+          "shape": 3,
           "links": [
             16
-          ],
-          "shape": 3
+          ]
         }
       ],
       "properties": {
@@ -33,70 +33,6 @@
       "widgets_values": [],
       "color": "#432",
       "bgcolor": "#653"
-    },
-    {
-      "id": 20,
-      "type": "DisplayAny",
-      "pos": [
-        580,
-        1320
-      ],
-      "size": [
-        320,
-        100
-      ],
-      "flags": {},
-      "order": 18,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "type": "*",
-          "link": 20
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DisplayAny"
-      },
-      "widgets_values": [
-        "raw value",
-        "4.077785326086956"
-      ]
-    },
-    {
-      "id": 18,
-      "type": "PreviewImage",
-      "pos": [
-        920,
-        980
-      ],
-      "size": [
-        370,
-        440
-      ],
-      "flags": {},
-      "order": 17,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 18
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": []
     },
     {
       "id": 16,
@@ -128,35 +64,35 @@
         {
           "name": "face_image",
           "type": "IMAGE",
+          "shape": 3,
           "links": [
             37
           ],
-          "slot_index": 0,
-          "shape": 3
+          "slot_index": 0
         },
         {
           "name": "preview",
           "type": "IMAGE",
+          "shape": 3,
           "links": [
             18
           ],
-          "slot_index": 1,
-          "shape": 3
+          "slot_index": 1
         },
         {
           "name": "bbox",
           "type": "BBOX",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         },
         {
           "name": "face_pixel_ratio",
           "type": "FLOAT",
+          "shape": 3,
           "links": [
             20
           ],
-          "slot_index": 3,
-          "shape": 3
+          "slot_index": 3
         }
       ],
       "properties": {
@@ -170,33 +106,6 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
-    },
-    {
-      "id": 38,
-      "type": "PreviewImage",
-      "pos": [
-        1310,
-        980
-      ],
-      "size": [
-        370,
-        440
-      ],
-      "flags": {},
-      "order": 16,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 37
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": []
     },
     {
       "id": 9,
@@ -251,8 +160,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -260,7 +169,7 @@
       },
       "widgets_values": [
         "raw value",
-        "960"
+        "174"
       ]
     },
     {
@@ -288,8 +197,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -297,7 +206,7 @@
       },
       "widgets_values": [
         "raw value",
-        "2208"
+        "223"
       ]
     },
     {
@@ -325,8 +234,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -334,7 +243,7 @@
       },
       "widgets_values": [
         "raw value",
-        "640"
+        "116"
       ]
     },
     {
@@ -362,8 +271,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -371,7 +280,7 @@
       },
       "widgets_values": [
         "raw value",
-        "1472"
+        "149"
       ]
     },
     {
@@ -399,8 +308,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -408,7 +317,7 @@
       },
       "widgets_values": [
         "raw value",
-        "no_crop"
+        "no_crop_to_ratio"
       ]
     },
     {
@@ -436,8 +345,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -445,7 +354,7 @@
       },
       "widgets_values": [
         "raw value",
-        "clipspace-mask-906368.2999999821"
+        "clipspace-mask-174576.79999999702"
       ]
     },
     {
@@ -473,8 +382,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -510,8 +419,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -547,8 +456,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -584,8 +493,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -621,8 +530,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -658,8 +567,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -667,47 +576,8 @@
       },
       "widgets_values": [
         "raw value",
-        "724"
+        "725"
       ]
-    },
-    {
-      "id": 37,
-      "type": "DisplayAny",
-      "pos": [
-        0,
-        1230
-      ],
-      "size": [
-        560,
-        190
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "type": "*",
-          "link": 36
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DisplayAny"
-      },
-      "widgets_values": [
-        "raw value",
-        "This node loads and processes images for use in image generation pipelines.\n\nKey features:\n\n1. Supports loading single images or batches from a specified folder\n2. Handles various image formats including JPEG, PNG, TIFF, GIF, BMP, and WebP\n3. Processes RGBA images, separating the alpha channel as a mask\n4. Calculates image quality score, size, and noise levels\n5. Provides options for including subdirectories and handling filename extensions\n6. Returns processed image tensor, mask, and various metadata\n7. Offers seed-based selection for consistent image loading from folders"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
     },
     {
       "id": 39,
@@ -765,8 +635,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -801,7 +671,8 @@
       "outputs": [],
       "properties": {
         "Node name for S&R": "MaskPreview+"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 40,
@@ -827,7 +698,8 @@
       "outputs": [],
       "properties": {
         "Node name for S&R": "MaskPreview+"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 28,
@@ -854,8 +726,8 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 3
+          "shape": 3,
+          "links": null
         }
       ],
       "properties": {
@@ -869,32 +741,41 @@
       "bgcolor": "#000"
     },
     {
-      "id": 15,
-      "type": "PreviewImage",
+      "id": 22,
+      "type": "DisplayAny",
       "pos": [
-        1320,
+        1690,
         30
       ],
       "size": [
-        350,
-        540
+        210,
+        100
       ],
       "flags": {},
-      "order": 19,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 15
+          "name": "input",
+          "type": "*",
+          "link": 21
         }
       ],
-      "outputs": [],
-      "title": "Cropped image",
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
       "properties": {
-        "Node name for S&R": "PreviewImage"
+        "Node name for S&R": "DisplayAny"
       },
-      "widgets_values": []
+      "widgets_values": [
+        "raw value",
+        "1.5"
+      ]
     },
     {
       "id": 5,
@@ -925,6 +806,34 @@
       "widgets_values": []
     },
     {
+      "id": 15,
+      "type": "PreviewImage",
+      "pos": [
+        1320,
+        30
+      ],
+      "size": [
+        350,
+        540
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [],
+      "title": "Cropped image",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
       "id": 2,
       "type": "FRED_AutoCropImage_SDXL_Ratio_V4",
       "pos": [
@@ -947,100 +856,100 @@
         {
           "name": "mask_optional",
           "type": "MASK",
-          "link": 2,
-          "shape": 7
+          "shape": 7,
+          "link": 2
         }
       ],
       "outputs": [
         {
           "name": "modified_image",
           "type": "IMAGE",
+          "shape": 3,
           "links": [
             15
           ],
-          "slot_index": 0,
-          "shape": 3
+          "slot_index": 0
         },
         {
           "name": "preview",
           "type": "IMAGE",
+          "shape": 3,
           "links": [
             5
           ],
-          "slot_index": 1,
-          "shape": 3
+          "slot_index": 1
         },
         {
           "name": "modified_mask",
           "type": "MASK",
+          "shape": 3,
           "links": [
             39
           ],
-          "shape": 3,
           "slot_index": 2
         },
         {
           "name": "scale_factor",
           "type": "FLOAT",
+          "shape": 3,
           "links": [
             21
           ],
-          "slot_index": 3,
-          "shape": 3
+          "slot_index": 3
         },
         {
           "name": "output_width",
           "type": "INT",
+          "shape": 3,
           "links": [
             22
           ],
-          "slot_index": 4,
-          "shape": 3
+          "slot_index": 4
         },
         {
           "name": "output_height",
           "type": "INT",
+          "shape": 3,
           "links": [
             23
           ],
-          "slot_index": 5,
-          "shape": 3
+          "slot_index": 5
         },
         {
           "name": "SDXL_width",
           "type": "INT",
+          "shape": 3,
           "links": [
             24
           ],
-          "slot_index": 6,
-          "shape": 3
+          "slot_index": 6
         },
         {
           "name": "SDXL_height",
           "type": "INT",
+          "shape": 3,
           "links": [
             25
           ],
-          "slot_index": 7,
-          "shape": 3
+          "slot_index": 7
         },
         {
           "name": "sd_aspect_ratios",
           "type": "STRING",
+          "shape": 3,
           "links": [
             26
           ],
-          "slot_index": 8,
-          "shape": 3
+          "slot_index": 8
         },
         {
           "name": "help",
           "type": "STRING",
+          "shape": 3,
           "links": [
             27
           ],
-          "slot_index": 9,
-          "shape": 3
+          "slot_index": 9
         }
       ],
       "properties": {
@@ -1048,7 +957,7 @@
       },
       "widgets_values": [
         true,
-        "no_crop",
+        "no_crop_to_ratio",
         1024,
         1024,
         true,
@@ -1059,47 +968,10 @@
         "area",
         1.5,
         true,
-        "#3d60c7"
+        "#3f60c6"
       ],
       "color": "#432",
       "bgcolor": "#653"
-    },
-    {
-      "id": 22,
-      "type": "DisplayAny",
-      "pos": [
-        1690,
-        30
-      ],
-      "size": [
-        210,
-        100
-      ],
-      "flags": {},
-      "order": 22,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "type": "*",
-          "link": 21
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DisplayAny"
-      },
-      "widgets_values": [
-        "raw value",
-        "1.5"
-      ]
     },
     {
       "id": 1,
@@ -1120,114 +992,114 @@
         {
           "name": "IMAGE",
           "type": "IMAGE",
+          "shape": 3,
           "links": [
             1,
             17
           ],
-          "slot_index": 0,
-          "shape": 3
+          "slot_index": 0
         },
         {
           "name": "MASK",
           "type": "MASK",
+          "shape": 3,
           "links": [
             2,
             11,
             38
           ],
-          "slot_index": 1,
-          "shape": 3
+          "slot_index": 1
         },
         {
           "name": "IMAGE_SIZE_KB",
           "type": "INT",
+          "shape": 3,
           "links": [
             28
           ],
-          "slot_index": 2,
-          "shape": 3
+          "slot_index": 2
         },
         {
           "name": "WIDTH",
           "type": "INT",
+          "shape": 3,
           "links": [
             29
           ],
-          "slot_index": 3,
-          "shape": 3
+          "slot_index": 3
         },
         {
           "name": "HEIGHT",
           "type": "INT",
+          "shape": 3,
           "links": [
             30
           ],
-          "slot_index": 4,
-          "shape": 3
+          "slot_index": 4
         },
         {
           "name": "QUALITY_SCORE",
           "type": "INT",
+          "shape": 3,
           "links": [
             31
           ],
-          "slot_index": 5,
-          "shape": 3
+          "slot_index": 5
         },
         {
           "name": "IMAGES QUANTITY IN FOLDER",
           "type": "INT",
+          "shape": 3,
           "links": [
             32
           ],
-          "slot_index": 6,
-          "shape": 3
+          "slot_index": 6
         },
         {
           "name": "SNR",
           "type": "FLOAT",
+          "shape": 3,
           "links": [
             33
           ],
-          "slot_index": 7,
-          "shape": 3
+          "slot_index": 7
         },
         {
           "name": "FOLDER_PATH",
           "type": "STRING",
+          "shape": 3,
           "links": [
             34
           ],
-          "slot_index": 8,
-          "shape": 3
+          "slot_index": 8
         },
         {
           "name": "filename_text",
           "type": "STRING",
+          "shape": 3,
           "links": [
             35
           ],
-          "slot_index": 9,
-          "shape": 3
+          "slot_index": 9
         },
         {
           "name": "help",
           "type": "STRING",
+          "shape": 3,
           "links": [
             36
           ],
-          "slot_index": 10,
-          "shape": 3
+          "slot_index": 10
         }
       ],
       "properties": {
         "Node name for S&R": "FRED_LoadImage_V5"
       },
       "widgets_values": [
-        "clipspace/clipspace-mask-906368.2999999821.png [input]",
+        "clipspace/clipspace-mask-174576.79999999702.png [input]",
         "no_folder",
-        10946,
-        "randomize",
+        14634,
+        "fixed",
         "",
         false,
         "image",
@@ -1235,6 +1107,136 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 37,
+      "type": "DisplayAny",
+      "pos": [
+        0,
+        1230
+      ],
+      "size": [
+        560,
+        210
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "This node loads and processes images for use in image generation pipelines.\n\nKey features:\n\n1. Supports loading single images or batches from a specified folder\n2. Handles various image formats including JPEG, PNG, TIFF, GIF, BMP, and WebP\n3. Processes RGBA images, separating the alpha channel as a mask\n4. Calculates image quality score, size, and noise levels\n5. Provides options for including subdirectories and handling filename extensions\n6. Returns processed image tensor, mask, and various metadata\n7. Offers seed-based selection for consistent image loading from folders"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 20,
+      "type": "DisplayAny",
+      "pos": [
+        580,
+        1320
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "4.077785326086956"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "PreviewImage",
+      "pos": [
+        920,
+        980
+      ],
+      "size": [
+        370,
+        460
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 38,
+      "type": "PreviewImage",
+      "pos": [
+        1310,
+        980
+      ],
+      "size": [
+        360,
+        460
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 37
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
     }
   ],
   "links": [
@@ -1467,10 +1469,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6351389182586306,
+      "scale": 0.5644739300537776,
       "offset": [
-        214.12652444179767,
-        257.77712819806646
+        89.9896666049161,
+        451.1368611963429
       ]
     }
   },
