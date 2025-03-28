@@ -89,6 +89,7 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
             crop_from_center, crop_x_in_Percent, crop_y_in_Percent, resize_image,
             resize_mode_if_upscale, resize_mode_if_downscale, prescale_factor,
             include_prescale_if_resize, preview_mask_color, mask_optional=None):
+        
         _, original_height, original_width, _ = image.shape
         modified_image: torch.Tensor
         sd_aspect_ratios = None
@@ -144,12 +145,14 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
                 resize_interpolation_mode = resize_mode_if_downscale if sdxl_width_wfactor < cropped_width else resize_mode_if_upscale
                 scale_factor = prescale_factor
                 resized_image = self.resize_image(cropped_image, resize_interpolation_mode, sdxl_width_wfactor, sdxl_height_wfactor, crop_from_center_str)
-                resized_mask = torch.nn.functional.interpolate(cropped_mask.unsqueeze(0), size=(sdxl_height_wfactor, sdxl_width_wfactor), mode="nearest").squeeze(0).clamp(0.0, 1.0)
+                # resized_mask = torch.nn.functional.interpolate(cropped_mask.unsqueeze(0), size=(sdxl_height_wfactor, sdxl_width_wfactor), mode="nearest").squeeze(0).clamp(0.0, 1.0)
+                resized_mask = comfy.utils.common_upscale(cropped_mask.unsqueeze(1), sdxl_width_wfactor, sdxl_height_wfactor, resize_interpolation_mode, crop_from_center_str).squeeze(1)
             else:
                 resize_interpolation_mode = resize_mode_if_downscale if sdxl_width < cropped_width else resize_mode_if_upscale
                 scale_factor = prescale_factor
                 resized_image = self.resize_image(cropped_image, resize_interpolation_mode, sdxl_width, sdxl_height, crop_from_center_str)
-                resized_mask = torch.nn.functional.interpolate(cropped_mask.unsqueeze(0), size=(sdxl_height, sdxl_width), mode="nearest").squeeze(0).clamp(0.0, 1.0)
+                # resized_mask = torch.nn.functional.interpolate(cropped_mask.unsqueeze(0), size=(sdxl_height, sdxl_width), mode="nearest").squeeze(0).clamp(0.0, 1.0)
+                resized_mask = comfy.utils.common_upscale(cropped_mask.unsqueeze(1), sdxl_width, sdxl_height, resize_interpolation_mode, crop_from_center_str).squeeze(1)
             modified_image = resized_image
             modified_mask = resized_mask
         else:
@@ -255,15 +258,17 @@ class FRED_AutoCropImage_SDXL_Ratio_v4:
             y_start = original_height - new_height
 
         if is_mask:
-            # print("is_mask:", is_mask)
-            # print("mask shape:", image.shape)
-            # Crop the image
-            if len(image.shape) == 4:
-                cropped_image = image[:, y_start:y_start + new_height, x_start:x_start + new_width, :]
-            elif len(image.shape) == 3:
-                cropped_image = image[y_start:y_start + new_height, x_start:x_start + new_width]
-            else:
-                raise ValueError(f"Unexpected image shape: {image.shape}")
+            print("is_mask:", is_mask)
+            print("Shape du masque avant le recadrage:", image.shape)
+            print(f"Paramètres de recadrage pour le masque: y_start={y_start}, new_height={new_height}, x_start={x_start}, new_width={new_width}")
+            try:
+                # cropped_image = image[y_start:y_start + new_height, x_start:x_start + new_width]
+                cropped_image = image[:, y_start:y_start + new_height, x_start:x_start + new_width]
+                print("Shape du masque après le recadrage:", cropped_image.shape)
+            except Exception as e:
+                print(f"Erreur lors du recadrage du masque: {e}")
+                print("Taille du masque au moment de l'erreur:", image.size()) # Affiche le nombre total d'éléments
+                cropped_image = image  # Pour éviter une erreur ultérieure, même si le masque est vide
 
             return cropped_image
         else:
@@ -383,5 +388,3 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "FRED_AutoCropImage_SDXL_Ratio_V4": "👑 FRED_AutoCropImage_SDXL_Ratio_v4"
 }
-
-
