@@ -1,0 +1,1480 @@
+{
+  "last_node_id": 41,
+  "last_link_id": 39,
+  "nodes": [
+    {
+      "id": 17,
+      "type": "FRED_LoadRetinaFace",
+      "pos": [
+        580,
+        980
+      ],
+      "size": [
+        320,
+        50
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "RETINAFACE",
+          "shape": 3,
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FRED_LoadRetinaFace"
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 16,
+      "type": "FRED_CropFace",
+      "pos": [
+        580,
+        1080
+      ],
+      "size": [
+        320,
+        190
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "RETINAFACE",
+          "link": 16
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "face_image",
+          "type": "IMAGE",
+          "shape": 3,
+          "links": [
+            37
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "shape": 3,
+          "links": [
+            18
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "bbox",
+          "type": "BBOX",
+          "shape": 3,
+          "links": null
+        },
+        {
+          "name": "face_pixel_ratio",
+          "type": "FLOAT",
+          "shape": 3,
+          "links": [
+            20
+          ],
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FRED_CropFace"
+      },
+      "widgets_values": [
+        0.8,
+        0.2,
+        0,
+        1536
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9,
+      "type": "MaskPreview+",
+      "pos": [
+        0,
+        780
+      ],
+      "size": [
+        330,
+        400
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 11
+        }
+      ],
+      "outputs": [],
+      "title": "Mask",
+      "properties": {
+        "Node name for S&R": "MaskPreview+"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 23,
+      "type": "DisplayAny",
+      "pos": [
+        1690,
+        180
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "174"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "DisplayAny",
+      "pos": [
+        1690,
+        330
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "223"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "DisplayAny",
+      "pos": [
+        1690,
+        480
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "116"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "DisplayAny",
+      "pos": [
+        1690,
+        630
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "149"
+      ]
+    },
+    {
+      "id": 27,
+      "type": "DisplayAny",
+      "pos": [
+        1690,
+        780
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "no_crop_to_ratio"
+      ]
+    },
+    {
+      "id": 36,
+      "type": "DisplayAny",
+      "pos": [
+        350,
+        1080
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "clipspace-mask-174576.79999999702"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "DisplayAny",
+      "pos": [
+        350,
+        930
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        ""
+      ]
+    },
+    {
+      "id": 34,
+      "type": "DisplayAny",
+      "pos": [
+        350,
+        780
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "3.5650093588919365"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "DisplayAny",
+      "pos": [
+        350,
+        480
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "28.6"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "DisplayAny",
+      "pos": [
+        350,
+        330
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "1472"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "DisplayAny",
+      "pos": [
+        350,
+        180
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "640"
+      ]
+    },
+    {
+      "id": 29,
+      "type": "DisplayAny",
+      "pos": [
+        350,
+        30
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "725"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "Label (rgthree)",
+      "pos": [
+        30,
+        -250
+      ],
+      "size": [
+        1830.234375,
+        180
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "ComfyUI-FRED-Nodes",
+      "properties": {
+        "fontSize": 180,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 33,
+      "type": "DisplayAny",
+      "pos": [
+        350,
+        630
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "0"
+      ]
+    },
+    {
+      "id": 41,
+      "type": "MaskPreview+",
+      "pos": [
+        1440,
+        620
+      ],
+      "size": [
+        230,
+        310
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 39
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 40,
+      "type": "MaskPreview+",
+      "pos": [
+        1190,
+        620
+      ],
+      "size": [
+        230,
+        310
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 38
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 28,
+      "type": "DisplayAny",
+      "pos": [
+        580,
+        620
+      ],
+      "size": [
+        590,
+        310
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "This node automatically crops and resizes images to fit SDXL aspect ratios.\n\nKey features:\n1. Auto-find SDXL resolution: Set to True to automatically find the closest SDXL ratio for your image.\n2. Custom aspect ratios: Choose from predefined SDXL ratios or set a custom width and height.\n3. Cropping options: \n   - Crop from center or adjust using crop_x_in_Percent and crop_y_in_Percent.\n   - Option to pre-crop based on an input mask.\n4. Resizing:\n   - Option to resize the cropped image to the target SDXL dimensions.\n   - Different interpolation modes for upscaling and downscaling.\n5. Prescaling: Apply a prescale factor to increase or decrease the final image size.\n6. Preview: Generates a preview image showing the cropped area.\n7. Mask handling: Can process and modify input masks alongside the image.\n\nUse 'Auto_find_SDXL_resolution' for automatic ratio selection, or choose a specific ratio. \nAdjust cropping, resizing, and scaling options to fine-tune the output. \nThe node provides both the processed image and a visual preview of the changes."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 22,
+      "type": "DisplayAny",
+      "pos": [
+        1690,
+        30
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "1.5"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "PreviewImage",
+      "pos": [
+        950,
+        30
+      ],
+      "size": [
+        350,
+        540
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 5
+        }
+      ],
+      "outputs": [],
+      "title": "Crop preview",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 15,
+      "type": "PreviewImage",
+      "pos": [
+        1320,
+        30
+      ],
+      "size": [
+        350,
+        540
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [],
+      "title": "Cropped image",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 2,
+      "type": "FRED_AutoCropImage_SDXL_Ratio_V4",
+      "pos": [
+        580,
+        30
+      ],
+      "size": [
+        350,
+        540
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "mask_optional",
+          "type": "MASK",
+          "shape": 7,
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "modified_image",
+          "type": "IMAGE",
+          "shape": 3,
+          "links": [
+            15
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "shape": 3,
+          "links": [
+            5
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "modified_mask",
+          "type": "MASK",
+          "shape": 3,
+          "links": [
+            39
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "scale_factor",
+          "type": "FLOAT",
+          "shape": 3,
+          "links": [
+            21
+          ],
+          "slot_index": 3
+        },
+        {
+          "name": "output_width",
+          "type": "INT",
+          "shape": 3,
+          "links": [
+            22
+          ],
+          "slot_index": 4
+        },
+        {
+          "name": "output_height",
+          "type": "INT",
+          "shape": 3,
+          "links": [
+            23
+          ],
+          "slot_index": 5
+        },
+        {
+          "name": "SDXL_width",
+          "type": "INT",
+          "shape": 3,
+          "links": [
+            24
+          ],
+          "slot_index": 6
+        },
+        {
+          "name": "SDXL_height",
+          "type": "INT",
+          "shape": 3,
+          "links": [
+            25
+          ],
+          "slot_index": 7
+        },
+        {
+          "name": "sd_aspect_ratios",
+          "type": "STRING",
+          "shape": 3,
+          "links": [
+            26
+          ],
+          "slot_index": 8
+        },
+        {
+          "name": "help",
+          "type": "STRING",
+          "shape": 3,
+          "links": [
+            27
+          ],
+          "slot_index": 9
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FRED_AutoCropImage_SDXL_Ratio_V4"
+      },
+      "widgets_values": [
+        true,
+        "no_crop_to_ratio",
+        1024,
+        1024,
+        true,
+        0,
+        0,
+        true,
+        "bilinear",
+        "area",
+        1.5,
+        true,
+        "#3f60c6"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1,
+      "type": "FRED_LoadImage_V5",
+      "pos": [
+        0,
+        30
+      ],
+      "size": [
+        330,
+        700
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "shape": 3,
+          "links": [
+            1,
+            17
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "shape": 3,
+          "links": [
+            2,
+            11,
+            38
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "IMAGE_SIZE_KB",
+          "type": "INT",
+          "shape": 3,
+          "links": [
+            28
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "WIDTH",
+          "type": "INT",
+          "shape": 3,
+          "links": [
+            29
+          ],
+          "slot_index": 3
+        },
+        {
+          "name": "HEIGHT",
+          "type": "INT",
+          "shape": 3,
+          "links": [
+            30
+          ],
+          "slot_index": 4
+        },
+        {
+          "name": "QUALITY_SCORE",
+          "type": "INT",
+          "shape": 3,
+          "links": [
+            31
+          ],
+          "slot_index": 5
+        },
+        {
+          "name": "IMAGES QUANTITY IN FOLDER",
+          "type": "INT",
+          "shape": 3,
+          "links": [
+            32
+          ],
+          "slot_index": 6
+        },
+        {
+          "name": "SNR",
+          "type": "FLOAT",
+          "shape": 3,
+          "links": [
+            33
+          ],
+          "slot_index": 7
+        },
+        {
+          "name": "FOLDER_PATH",
+          "type": "STRING",
+          "shape": 3,
+          "links": [
+            34
+          ],
+          "slot_index": 8
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "shape": 3,
+          "links": [
+            35
+          ],
+          "slot_index": 9
+        },
+        {
+          "name": "help",
+          "type": "STRING",
+          "shape": 3,
+          "links": [
+            36
+          ],
+          "slot_index": 10
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FRED_LoadImage_V5"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-174576.79999999702.png [input]",
+        "no_folder",
+        14634,
+        "fixed",
+        "",
+        false,
+        "image",
+        "false"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 37,
+      "type": "DisplayAny",
+      "pos": [
+        0,
+        1230
+      ],
+      "size": [
+        560,
+        210
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "This node loads and processes images for use in image generation pipelines.\n\nKey features:\n\n1. Supports loading single images or batches from a specified folder\n2. Handles various image formats including JPEG, PNG, TIFF, GIF, BMP, and WebP\n3. Processes RGBA images, separating the alpha channel as a mask\n4. Calculates image quality score, size, and noise levels\n5. Provides options for including subdirectories and handling filename extensions\n6. Returns processed image tensor, mask, and various metadata\n7. Offers seed-based selection for consistent image loading from folders"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 20,
+      "type": "DisplayAny",
+      "pos": [
+        580,
+        1320
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayAny"
+      },
+      "widgets_values": [
+        "raw value",
+        "4.077785326086956"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "PreviewImage",
+      "pos": [
+        920,
+        980
+      ],
+      "size": [
+        370,
+        460
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 38,
+      "type": "PreviewImage",
+      "pos": [
+        1310,
+        980
+      ],
+      "size": [
+        360,
+        460
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 37
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      1,
+      1,
+      2,
+      1,
+      "MASK"
+    ],
+    [
+      5,
+      2,
+      1,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      1,
+      1,
+      9,
+      0,
+      "MASK"
+    ],
+    [
+      15,
+      2,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      16,
+      17,
+      0,
+      16,
+      0,
+      "RETINAFACE"
+    ],
+    [
+      17,
+      1,
+      0,
+      16,
+      1,
+      "IMAGE"
+    ],
+    [
+      18,
+      16,
+      1,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      20,
+      16,
+      3,
+      20,
+      0,
+      "*"
+    ],
+    [
+      21,
+      2,
+      3,
+      22,
+      0,
+      "*"
+    ],
+    [
+      22,
+      2,
+      4,
+      23,
+      0,
+      "*"
+    ],
+    [
+      23,
+      2,
+      5,
+      24,
+      0,
+      "*"
+    ],
+    [
+      24,
+      2,
+      6,
+      25,
+      0,
+      "*"
+    ],
+    [
+      25,
+      2,
+      7,
+      26,
+      0,
+      "*"
+    ],
+    [
+      26,
+      2,
+      8,
+      27,
+      0,
+      "*"
+    ],
+    [
+      27,
+      2,
+      9,
+      28,
+      0,
+      "*"
+    ],
+    [
+      28,
+      1,
+      2,
+      29,
+      0,
+      "*"
+    ],
+    [
+      29,
+      1,
+      3,
+      30,
+      0,
+      "*"
+    ],
+    [
+      30,
+      1,
+      4,
+      31,
+      0,
+      "*"
+    ],
+    [
+      31,
+      1,
+      5,
+      32,
+      0,
+      "*"
+    ],
+    [
+      32,
+      1,
+      6,
+      33,
+      0,
+      "*"
+    ],
+    [
+      33,
+      1,
+      7,
+      34,
+      0,
+      "*"
+    ],
+    [
+      34,
+      1,
+      8,
+      35,
+      0,
+      "*"
+    ],
+    [
+      35,
+      1,
+      9,
+      36,
+      0,
+      "*"
+    ],
+    [
+      36,
+      1,
+      10,
+      37,
+      0,
+      "*"
+    ],
+    [
+      37,
+      16,
+      0,
+      38,
+      0,
+      "IMAGE"
+    ],
+    [
+      38,
+      1,
+      1,
+      40,
+      0,
+      "MASK"
+    ],
+    [
+      39,
+      2,
+      2,
+      41,
+      0,
+      "MASK"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5644739300537776,
+      "offset": [
+        89.9896666049161,
+        451.1368611963429
+      ]
+    }
+  },
+  "version": 0.4
+}

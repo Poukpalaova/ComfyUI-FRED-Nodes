@@ -14,7 +14,7 @@ class FRED_CropFace:
                 "confidence": ("FLOAT", {"default": 0.8, "min": 0, "max": 1}),
                 "margin_factor": ("FLOAT", {"default": 1.0, "min": 0.0}),
                 "face_id": ("INT", {"default": 0, "min": 0}),
-                "max_size": ("INT", {"default": 1536, "min": 256}),  # Maximum size for detection
+                "max_size": ("INT", {"default": 1536, "min": 256}), # Maximum size for detection
             }
         }
 
@@ -46,7 +46,6 @@ class FRED_CropFace:
         # Scale bounding boxes back to original size
         bboxes = [(x0/scale, y0/scale, x1/scale, y1/scale, score, *[p/scale for p in points])
                   for (x0, y0, x1, y1, score, *points) in bboxes]
-
         bboxes = sorted(bboxes, key=lambda b: b[0])
 
         if face_id >= len(bboxes):
@@ -72,13 +71,13 @@ class FRED_CropFace:
         selected_bbox = bboxes[face_id]
         x, y, w, h = selected_bbox
         cropped_face = image[0, y:y + h, x:x + w, :].unsqueeze(0)
-
+        
         face_pixels = w * h
         total_pixels = img_height * img_width
         face_pixel_ratio = (face_pixels / total_pixels) * 100 if total_pixels > 0 else 0.0
-
+        
         return cropped_face, cv2tensor(detection_preview), selected_bbox, face_pixel_ratio
-    
+
     def crop_faces(self, bboxes, image: torch.Tensor):
         """
         Returns: list of Tensor[h, w, c] of faces
@@ -96,12 +95,22 @@ class FRED_CropFace:
         img = np.copy(img)
         for b in bboxes_and_landmarks:
             # Display boxes and confidence scores
-            cv2.putText(img, f'{b[4]:.4f}', (int(b[0]), int(b[1] + 12)), cv2.FONT_HERSHEY_DUPLEX, 0.5, (255, 255, 255))
-            b = list(map(int, b))
-            cv2.rectangle(img, (b[0], b[1]), (b[2], b[3]), (0, 0, 255), 2)
+            cv2.putText(img,
+                        f'{b[4]:.4f}',
+                        (int(b[0]), int(b[1] + 12)),
+                        cv2.FONT_HERSHEY_DUPLEX,
+                        0.5,
+                        (255, 255, 255))
+            b = list(map(int,b))
+            cv2.rectangle(img,
+                          (b[0], b[1]),
+                          (b[2], b[3]),
+                          (0 , 0 ,255),2)
+            
             # Display landmarks (face points)
             for i in range(5):
-                cv2.circle(img, (b[5 + i*2], b[6 + i*2]), 1, (0, 0, 255), 4)
+                cv2.circle(img,(b[5+i*2],b[6+i*2]),1,(0 , 0 ,255),4)
+                
         return img
 
     def add_margin_and_make_square(self, bbox, margin_factor: float, img_width: int, img_height: int):
