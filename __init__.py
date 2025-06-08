@@ -24,7 +24,8 @@ node_list = [
     "FRED_TextMultiline",
 #     "FRED_ColorQuantization",
 #     "FRED_LoraList",
-    "FRED_Text_to_XMP"
+    "FRED_Text_to_XMP",
+    "FRED_AutoImageTile_from_Mask_v1"
 ]
 
 NODE_CLASS_MAPPINGS = {}

@@ -7,9 +7,12 @@ import folder_paths
 import node_helpers
 import random
 import fnmatch
+import json
+import time
 from PIL import Image, ImageOps, ImageSequence
 
 ALLOWED_EXT = ('.jpeg', '.jpg', '.png', '.tiff', '.gif', '.bmp', '.webp')
+CACHE_VERSION = 2  # Increment when cache format changes
 
 HELP_MESSAGE = """This node loads and processes images for use in image generation pipelines.
 
@@ -226,40 +229,70 @@ class FRED_LoadImage_V6:
         def __init__(self, directory_path, include_subdirectories=False):
             self.directory_path = directory_path
             self.include_subdirectories = include_subdirectories
-            self.image_paths_cache = {}  # Cache image paths per subdirectory
-            self.total_image_count = self._calculate_total_image_count()
+            self.image_paths = []
+            self.cache_file = self._get_cache_path()
+            self.dir_hash = self._calculate_directory_hash()
+            # Try to load from cache
+            if not self._load_from_cache():
+                self._build_index()
+                self._save_to_cache()
 
-        def _calculate_total_image_count(self):
-            count = 0
+        def _get_cache_path(self):
+            # Use system temp directory, or wherever you want
+            temp_dir = os.path.join(os.path.expanduser("~"), ".fred_image_cache")
+            os.makedirs(temp_dir, exist_ok=True)
+            safe_name = hashlib.md5((self.directory_path + str(self.include_subdirectories)).encode()).hexdigest()
+            return os.path.join(temp_dir, f"{safe_name}.json")
+
+        def _calculate_directory_hash(self):
+            # Only hash the path and subdir flag for simplicity
+            hash_str = self.directory_path + str(self.include_subdirectories)
+            return hashlib.md5(hash_str.encode()).hexdigest()
+
+        def _load_from_cache(self):
+            if os.path.exists(self.cache_file):
+                try:
+                    with open(self.cache_file, 'r') as f:
+                        data = json.load(f)
+                        if data.get('dir_hash') == self.dir_hash:
+                            self.image_paths = data['image_paths']
+                            return True
+                except Exception as e:
+                    print(f"Cache load failed: {e}")
+            return False
+
+        def _save_to_cache(self):
+            data = {
+                'dir_hash': self.dir_hash,
+                'image_paths': self.image_paths,
+                'timestamp': time.time()
+            }
+            try:
+                with open(self.cache_file, 'w') as f:
+                    json.dump(data, f)
+            except Exception as e:
+                print(f"Cache save failed: {e}")
+
+        def _build_index(self):
+            self.image_paths = []
             if self.include_subdirectories:
                 for root, _, files in os.walk(self.directory_path):
-                    count += sum(1 for f in files if f.lower().endswith(ALLOWED_EXT))
+                    for file in files:
+                        if file.lower().endswith(ALLOWED_EXT):
+                            self.image_paths.append(os.path.abspath(os.path.join(root, file)))
             else:
-                count = sum(1 for f in os.listdir(self.directory_path)
-                            if os.path.isfile(os.path.join(self.directory_path, f)) and f.lower().endswith(ALLOWED_EXT))
-            return count
+                for file in os.listdir(self.directory_path):
+                    if file.lower().endswith(ALLOWED_EXT):
+                        self.image_paths.append(os.path.abspath(os.path.join(self.directory_path, file)))
+            self.image_paths.sort()  # For deterministic order
 
         def get_total_image_count(self):
-            return self.total_image_count
+            return len(self.image_paths)
 
         def get_image_path_by_id(self, image_id):
-            if not self.include_subdirectories:
-                image_files = [f for f in os.listdir(self.directory_path)
-                               if os.path.isfile(os.path.join(self.directory_path, f)) and f.lower().endswith(ALLOWED_EXT)]
-                if image_files:
-                    selected_filename = image_files[image_id % len(image_files)]
-                    return os.path.abspath(os.path.join(self.directory_path, selected_filename))
+            if not self.image_paths:
                 return None
-
-            image_index = 0
-            for root, _, files in os.walk(self.directory_path):
-                for file_name in files:
-                    if file_name.lower().endswith(ALLOWED_EXT):
-                        if image_index == image_id % self.total_image_count:
-                            return os.path.abspath(os.path.join(root, file_name))
-                        image_index += 1
-            return None
-
+            return self.image_paths[image_id % len(self.image_paths)]
 
     @classmethod
     def IS_CHANGED(cls, **kwargs):
