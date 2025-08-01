@@ -21,7 +21,7 @@ class FRED_LoadPathImagesPreview(PreviewImage):
 
     NAME = "Images_Preview"
     FUNCTION = "preview_images"
-    CATEGORY = "FRED/image"
+    CATEGORY = "👑FRED/image"
 
     class BatchImageLoader:
         def __init__(self, directory_path, pattern):

@@ -22,7 +22,7 @@ class FRED_LoadPathImagesPreview_v2(PreviewImage):
     RETURN_NAMES = ("IMAGES QUANTITY IN FOLDER")
     NAME = "Images_Preview"
     FUNCTION = "preview_images"
-    CATEGORY = "FRED/image"
+    CATEGORY = "👑FRED/image"
 
     class BatchImageLoader:
         def __init__(self, directory_path, pattern):

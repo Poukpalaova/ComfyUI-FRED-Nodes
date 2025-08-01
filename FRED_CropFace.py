@@ -30,7 +30,7 @@ class FRED_CropFace:
     RETURN_TYPES = ("IMAGE", "IMAGE", "BBOX", "FLOAT", "FLOAT")
     RETURN_NAMES = ("face_image", "preview", "bbox", "face_pixel_ratio", "face_w_margin_pixel_ratio")
     FUNCTION = "crop"
-    CATEGORY = "FRED/image/postprocessing"
+    CATEGORY = "👑FRED/image/postprocessing"
 
     def crop(self, image: torch.Tensor, confidence: float, left_margin_factor: float, 
             right_margin_factor: float, top_margin_factor: float, bottom_margin_factor: float, 

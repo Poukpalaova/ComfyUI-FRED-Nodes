@@ -72,7 +72,7 @@ class FRED_AutoCropImage_SDXL_Ratio_v3:
         "help"
     )
     FUNCTION = "run"
-    CATEGORY = "FRED/image/postprocessing"
+    CATEGORY = "👑FRED/image/postprocessing"
     OUTPUT_NODE = True
     def run(self, 
         image, 

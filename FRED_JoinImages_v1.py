@@ -17,7 +17,7 @@ class FRED_JoinImages():
     
     FUNCTION = "JoinImages"
     
-    CATEGORY = "ezXY/image"
+    CATEGORY = "👑FRED/image/postprocessing"
 
     def JoinImages(self, image_1, images_2, direction):
         # Ensure images_2 is a list

@@ -14,7 +14,7 @@ class FRED_TextMultiline:
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("lines",)
     OUTPUT_IS_LIST = (True,)
-    CATEGORY = "FRED/Utils"
+    CATEGORY = "👑FRED/Util"
     FUNCTION = "select_multiline"
 
     def select_multiline(self, text: str, amount=1, seed=0):

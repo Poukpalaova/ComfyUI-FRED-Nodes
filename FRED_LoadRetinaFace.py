@@ -11,7 +11,7 @@ class FRED_LoadRetinaFace:
     RETURN_TYPES = ("RETINAFACE", )
     RETURN_NAMES = ("MODEL", )
     FUNCTION = "load"
-    CATEGORY = "CFaceSwap"
+    CATEGORY = "👑FRED/Load"
     def load(self):
         from facexlib.detection import init_detection_model
         return (init_detection_model("retinaface_resnet50", model_rootpath=self.models_dir), )

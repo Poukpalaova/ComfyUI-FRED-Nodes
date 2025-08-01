@@ -33,7 +33,7 @@ class FRED_LoadImage_V2:
         "filename_text"
     )
     FUNCTION = "load_image"
-    CATEGORY = "FRED/image"
+    CATEGORY = "👑FRED/image"
     def load_image(self, image, filename_text_extension="true"):
         image_path = folder_paths.get_annotated_filepath(image)
         

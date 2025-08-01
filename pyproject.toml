@@ -1,6 +1,6 @@
 [project]
 name = "ComfyUI FRED Nodes"
-description = "Multiple nodes that ease the process."
+description = "Multiple nodes to be used for more complex workflow."
 version = "1.0.0"
 license = { file = "LICENSE" }
 
@@ -11,4 +11,4 @@ Repository = "https://github.com/Poukpalaova/ComfyUI-FRED-Nodes"
 [tool.comfy]
 PublisherId = "Poukpalaova"
 DisplayName = "ComfyUI FRED Nodes"
-Icon = ""
+Icon = "👑"

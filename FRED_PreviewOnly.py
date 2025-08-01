@@ -6,7 +6,7 @@ class FRED_PreviewOnly(PreviewImage):
     RETURN_TYPES = ("IMAGE",)
     RETURN_NAMES = ("images",)
     FUNCTION = "func"
-    CATEGORY = "image_chooser"
+    CATEGORY = "👑FRED/image"
     INPUT_IS_LIST = True
     OUTPUT_NODE = False
 

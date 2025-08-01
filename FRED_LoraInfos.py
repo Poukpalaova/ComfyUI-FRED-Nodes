@@ -30,7 +30,7 @@ class FRED_LoraInfos:
     RETURN_TYPES = ("STRING", "STRING", "STRING")
     FUNCTION = "lora_info"
     OUTPUT_NODE = True
-    CATEGORY = "FRED/lora"
+    CATEGORY = "👑FRED/lora"
 
     # def get_json_info(self, lora_name):
         # lora_path = folder_paths.get_full_path("loras", lora_name)

@@ -61,7 +61,7 @@ class FRED_photo_prompt:
     RETURN_TYPES = ('STRING', 'STRING')
     RETURN_NAMES = ('full_composed_prompt', 'subject_only')
     FUNCTION = 'prompt_styler'
-    CATEGORY = 'FRED/image'
+    CATEGORY = '👑FRED/util'
 
     def prompt_styler(self, modal_combos, style, subject, framing,
                       indoor_background, outdoor_background, lighting, camera_angle,

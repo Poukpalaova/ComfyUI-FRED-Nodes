@@ -55,7 +55,7 @@ class FRED_LoadImage_V4:
         "filename_text"
     )
     FUNCTION = "load_image"
-    CATEGORY = "FRED/image"
+    CATEGORY = "👑FRED/image"
     
     def load_image(self, seed, image, mode="no_folder", path="", filename_text_extension="false"):
         # Initialize image_path

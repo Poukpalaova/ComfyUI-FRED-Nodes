@@ -1,8 +1,8 @@
 {
   "id": "ecab9e02-b702-4e78-b2d1-4efd36ea7b81",
   "revision": 0,
-  "last_node_id": 63,
-  "last_link_id": 93,
+  "last_node_id": 67,
+  "last_link_id": 102,
   "nodes": [
     {
       "id": 15,
@@ -16,7 +16,7 @@
         540
       ],
       "flags": {},
-      "order": 18,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -28,8 +28,6 @@
       "outputs": [],
       "title": "Cropped image",
       "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.38",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -37,6 +35,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
         "Node name for S&R": "PreviewImage",
         "widget_ue_connectable": {}
       },
@@ -105,8 +105,6 @@
       "outputs": [],
       "title": "Mask",
       "properties": {
-        "cnr_id": "comfyui_essentials",
-        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -114,6 +112,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "comfyui_essentials",
+        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
         "Node name for S&R": "MaskPreview+",
         "widget_ue_connectable": {}
       },
@@ -131,7 +131,7 @@
         540
       ],
       "flags": {},
-      "order": 19,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -143,8 +143,6 @@
       "outputs": [],
       "title": "Crop preview",
       "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.38",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -152,6 +150,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
         "Node name for S&R": "PreviewImage",
         "widget_ue_connectable": {}
       },
@@ -169,7 +169,7 @@
         88
       ],
       "flags": {},
-      "order": 11,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -182,8 +182,6 @@
       "outputs": [],
       "title": "Img QTY current folder",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -191,6 +189,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -210,7 +210,7 @@
         88
       ],
       "flags": {},
-      "order": 10,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -223,8 +223,6 @@
       "outputs": [],
       "title": "Total img QTY",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -232,6 +230,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -251,7 +251,7 @@
         88
       ],
       "flags": {},
-      "order": 12,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -264,8 +264,6 @@
       "outputs": [],
       "title": "Signal to Noise Ratio",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -273,6 +271,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -292,7 +292,7 @@
         88
       ],
       "flags": {},
-      "order": 13,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -305,8 +305,6 @@
       "outputs": [],
       "title": "Folder Path",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -314,6 +312,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -333,7 +333,7 @@
         88
       ],
       "flags": {},
-      "order": 14,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -346,8 +346,6 @@
       "outputs": [],
       "title": "Full Folder Path",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -355,6 +353,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -374,7 +374,7 @@
         88
       ],
       "flags": {},
-      "order": 15,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -387,8 +387,6 @@
       "outputs": [],
       "title": "Filename Text",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -396,6 +394,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -415,7 +415,7 @@
         390
       ],
       "flags": {},
-      "order": 27,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -433,8 +433,6 @@
       ],
       "title": "AutoCropImage Read Me",
       "properties": {
-        "cnr_id": "comfyui_essentials",
-        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -442,6 +440,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "comfyui_essentials",
+        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
         "Node name for S&R": "DisplayAny",
         "widget_ue_connectable": {}
       },
@@ -476,8 +476,6 @@
       "outputs": [],
       "title": "Original Mask",
       "properties": {
-        "cnr_id": "comfyui_essentials",
-        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -485,6 +483,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "comfyui_essentials",
+        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
         "Node name for S&R": "MaskPreview+",
         "widget_ue_connectable": {}
       },
@@ -502,7 +502,7 @@
         88
       ],
       "flags": {},
-      "order": 21,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -515,8 +515,6 @@
       "outputs": [],
       "title": "Scale Factor",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -524,6 +522,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -543,7 +543,7 @@
         88
       ],
       "flags": {},
-      "order": 22,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -556,8 +556,6 @@
       "outputs": [],
       "title": "Output Width",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -565,6 +563,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -584,7 +584,7 @@
         88
       ],
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -597,8 +597,6 @@
       "outputs": [],
       "title": "Width",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -606,6 +604,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -625,7 +625,7 @@
         88
       ],
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -638,8 +638,6 @@
       "outputs": [],
       "title": "Height",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -647,6 +645,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -666,7 +666,7 @@
         88
       ],
       "flags": {},
-      "order": 9,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -679,8 +679,6 @@
       "outputs": [],
       "title": "Quality Score",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -688,6 +686,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -707,7 +707,7 @@
         88
       ],
       "flags": {},
-      "order": 23,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -720,8 +720,6 @@
       "outputs": [],
       "title": "Output Height",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -729,6 +727,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -748,7 +748,7 @@
         88
       ],
       "flags": {},
-      "order": 24,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -761,8 +761,6 @@
       "outputs": [],
       "title": "Native Width",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -770,6 +768,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -789,7 +789,7 @@
         88
       ],
       "flags": {},
-      "order": 25,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -802,8 +802,6 @@
       "outputs": [],
       "title": "Native Height",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -811,6 +809,8 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
@@ -830,7 +830,7 @@
         88
       ],
       "flags": {},
-      "order": 26,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -843,8 +843,6 @@
       "outputs": [],
       "title": "SD aspect ratio",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -852,149 +850,14 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
       "widgets_values": [
         ""
       ]
-    },
-    {
-      "id": 42,
-      "type": "FRED_LoadImage_V6",
-      "pos": [
-        0,
-        30
-      ],
-      "size": [
-        330,
-        750
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            43,
-            82
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": [
-            40,
-            61,
-            83
-          ]
-        },
-        {
-          "name": "IMAGE_SIZE_KB",
-          "type": "INT",
-          "links": [
-            49
-          ]
-        },
-        {
-          "name": "WIDTH",
-          "type": "INT",
-          "links": [
-            50
-          ]
-        },
-        {
-          "name": "HEIGHT",
-          "type": "INT",
-          "links": [
-            51
-          ]
-        },
-        {
-          "name": "QUALITY_SCORE",
-          "type": "INT",
-          "links": [
-            52
-          ]
-        },
-        {
-          "name": "TOTAL IMAGES QTY IN FOLDER(S)",
-          "type": "INT",
-          "links": [
-            53
-          ]
-        },
-        {
-          "name": "IMAGES QTY IN CURRENT FOLDER",
-          "type": "INT",
-          "links": [
-            54
-          ]
-        },
-        {
-          "name": "SNR",
-          "type": "FLOAT",
-          "links": [
-            56
-          ]
-        },
-        {
-          "name": "FOLDER_PATH",
-          "type": "STRING",
-          "links": [
-            57
-          ]
-        },
-        {
-          "name": "FULL_FOLDER_PATH",
-          "type": "STRING",
-          "links": [
-            58
-          ]
-        },
-        {
-          "name": "filename_text",
-          "type": "STRING",
-          "links": [
-            59
-          ]
-        },
-        {
-          "name": "help",
-          "type": "STRING",
-          "links": [
-            60
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "Poukpalaova/ComfyUI-FRED-Nodes",
-        "ver": "e3755b3607c095bba44312e31818199167fa1508",
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "FRED_LoadImage_V6",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        "clipspace/clipspace-mask-4199440.3999999985.png [input]",
-        "no_folder",
-        0,
-        "fixed",
-        "",
-        false,
-        "image",
-        "false"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
     },
     {
       "id": 43,
@@ -1008,7 +871,7 @@
         88
       ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -1021,8 +884,6 @@
       "outputs": [],
       "title": "Image Size KB",
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -1030,12 +891,338 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
         "Node name for S&R": "Display Any (rgthree)",
         "widget_ue_connectable": {}
       },
       "widgets_values": [
         ""
       ]
+    },
+    {
+      "id": 41,
+      "type": "MaskPreview+",
+      "pos": [
+        1440,
+        620
+      ],
+      "size": [
+        230,
+        390
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 86
+        }
+      ],
+      "outputs": [],
+      "title": "Modified Mask",
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfyui_essentials",
+        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+        "Node name for S&R": "MaskPreview+",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 65,
+      "type": "Display Any (rgthree)",
+      "pos": [
+        810,
+        1390
+      ],
+      "size": [
+        220,
+        90
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "source",
+          "type": "*",
+          "link": 99
+        }
+      ],
+      "outputs": [],
+      "title": "Face Pixel Ratio",
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "Display Any (rgthree)"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 62,
+      "type": "Display Any (rgthree)",
+      "pos": [
+        810,
+        1530
+      ],
+      "size": [
+        220,
+        90
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "source",
+          "type": "*",
+          "link": 98
+        }
+      ],
+      "outputs": [],
+      "title": "Face Pixel Ratio",
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
+        "Node name for S&R": "Display Any (rgthree)",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 64,
+      "type": "FRED_CropFace",
+      "pos": [
+        580,
+        1060
+      ],
+      "size": [
+        450,
+        282
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 94
+        }
+      ],
+      "outputs": [
+        {
+          "name": "face_image",
+          "type": "IMAGE",
+          "links": [
+            96
+          ]
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "links": [
+            95
+          ]
+        },
+        {
+          "name": "bbox",
+          "type": "BBOX",
+          "links": [
+            99
+          ]
+        },
+        {
+          "name": "face_pixel_ratio",
+          "type": "FLOAT",
+          "links": [
+            97
+          ]
+        },
+        {
+          "name": "face_w_margin_pixel_ratio",
+          "type": "FLOAT",
+          "links": [
+            98
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "aux_id": "Poukpalaova/ComfyUI-FRED-Nodes",
+        "ver": "2f2aa346eecec5ed3beefa8daaf31c04a14a3613",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "FRED_CropFace"
+      },
+      "widgets_values": [
+        0.8,
+        0.6,
+        0.6,
+        0.4,
+        1,
+        0,
+        1536
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 54,
+      "type": "Display Any (rgthree)",
+      "pos": [
+        580,
+        1390
+      ],
+      "size": [
+        210,
+        90
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "source",
+          "type": "*",
+          "link": 97
+        }
+      ],
+      "outputs": [],
+      "title": "Face Pixel Ratio",
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
+        "Node name for S&R": "Display Any (rgthree)",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 53,
+      "type": "Display Any (rgthree)",
+      "pos": [
+        0,
+        1330
+      ],
+      "size": [
+        560,
+        280
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "source",
+          "type": "*",
+          "link": 60
+        }
+      ],
+      "outputs": [],
+      "title": "Load Image Read Me",
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "rgthree-comfy",
+        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
+        "Node name for S&R": "Display Any (rgthree)",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 18,
+      "type": "PreviewImage",
+      "pos": [
+        1050,
+        1060
+      ],
+      "size": [
+        370,
+        560
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 95
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
+        "Node name for S&R": "PreviewImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
     },
     {
       "id": 63,
@@ -1137,8 +1324,6 @@
         }
       ],
       "properties": {
-        "aux_id": "Poukpalaova/ComfyUI-FRED-Nodes",
-        "ver": "e3755b3607c095bba44312e31818199167fa1508",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -1146,8 +1331,10 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
-        "widget_ue_connectable": {},
-        "Node name for S&R": "FRED_AutoCropImage_Native_Ratio_v5"
+        "aux_id": "Poukpalaova/ComfyUI-FRED-Nodes",
+        "ver": "e3755b3607c095bba44312e31818199167fa1508",
+        "Node name for S&R": "FRED_AutoCropImage_Native_Ratio_v5",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         false,
@@ -1163,155 +1350,124 @@
         1.5,
         false,
         "#503555"
-      ]
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     },
     {
-      "id": 41,
-      "type": "MaskPreview+",
+      "id": 42,
+      "type": "FRED_LoadImage_V6",
       "pos": [
-        1440,
-        620
+        0,
+        30
       ],
       "size": [
-        230,
-        390
+        330,
+        750
       ],
       "flags": {},
-      "order": 20,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "mask",
-          "type": "MASK",
-          "link": 86
-        }
-      ],
-      "outputs": [],
-      "title": "Modified Mask",
-      "properties": {
-        "cnr_id": "comfyui_essentials",
-        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "MaskPreview+",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 17,
-      "type": "FRED_LoadRetinaFace",
-      "pos": [
-        580,
-        1060
-      ],
-      "size": [
-        450,
-        50
-      ],
-      "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
-          "name": "MODEL",
-          "type": "RETINAFACE",
-          "links": [
-            16
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "Poukpalaova/ComfyUI-FRED-Nodes",
-        "ver": "e3755b3607c095bba44312e31818199167fa1508",
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "FRED_LoadRetinaFace",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 16,
-      "type": "FRED_CropFace",
-      "pos": [
-        580,
-        1160
-      ],
-      "size": [
-        450,
-        282
-      ],
-      "flags": {},
-      "order": 17,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "RETINAFACE",
-          "link": 16
-        },
-        {
-          "name": "image",
+          "name": "IMAGE",
           "type": "IMAGE",
-          "link": 43
-        }
-      ],
-      "outputs": [
-        {
-          "name": "face_image",
-          "type": "IMAGE",
-          "slot_index": 0,
           "links": [
-            37
+            82,
+            94,
+            100
           ]
         },
         {
-          "name": "preview",
-          "type": "IMAGE",
-          "slot_index": 1,
+          "name": "MASK",
+          "type": "MASK",
           "links": [
-            18
+            40,
+            61,
+            83,
+            101
           ]
         },
         {
-          "name": "bbox",
-          "type": "BBOX",
-          "links": null
-        },
-        {
-          "name": "face_pixel_ratio",
-          "type": "FLOAT",
-          "slot_index": 3,
+          "name": "IMAGE_SIZE_KB",
+          "type": "INT",
           "links": [
-            62
+            49
           ]
         },
         {
-          "name": "face_w_margin_pixel_ratio",
+          "name": "WIDTH",
+          "type": "INT",
+          "links": [
+            50
+          ]
+        },
+        {
+          "name": "HEIGHT",
+          "type": "INT",
+          "links": [
+            51
+          ]
+        },
+        {
+          "name": "QUALITY_SCORE",
+          "type": "INT",
+          "links": [
+            52
+          ]
+        },
+        {
+          "name": "TOTAL IMAGES QTY IN FOLDER(S)",
+          "type": "INT",
+          "links": [
+            53
+          ]
+        },
+        {
+          "name": "IMAGES QTY IN CURRENT FOLDER",
+          "type": "INT",
+          "links": [
+            54
+          ]
+        },
+        {
+          "name": "SNR",
           "type": "FLOAT",
           "links": [
-            81
+            56
+          ]
+        },
+        {
+          "name": "FOLDER_PATH",
+          "type": "STRING",
+          "links": [
+            57
+          ]
+        },
+        {
+          "name": "FULL_FOLDER_PATH",
+          "type": "STRING",
+          "links": [
+            58
+          ]
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": [
+            59
+          ]
+        },
+        {
+          "name": "help",
+          "type": "STRING",
+          "links": [
+            60
           ]
         }
       ],
-      "title": "👑 FRED_CropFace WIP",
       "properties": {
-        "aux_id": "Poukpalaova/ComfyUI-FRED-Nodes",
-        "ver": "e3755b3607c095bba44312e31818199167fa1508",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -1319,182 +1475,23 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
-        "Node name for S&R": "FRED_CropFace",
+        "aux_id": "Poukpalaova/ComfyUI-FRED-Nodes",
+        "ver": "e3755b3607c095bba44312e31818199167fa1508",
+        "Node name for S&R": "FRED_LoadImage_V6",
         "widget_ue_connectable": {}
       },
       "widgets_values": [
-        0.8,
-        0.2,
+        "clipspace/clipspace-mask-1261223.1000000238.png [input]",
+        "no_folder",
         0,
-        1536,
-        1,
-        0,
-        1536
+        "fixed",
+        "",
+        false,
+        "image",
+        "false"
       ],
       "color": "#432",
       "bgcolor": "#653"
-    },
-    {
-      "id": 62,
-      "type": "Display Any (rgthree)",
-      "pos": [
-        810,
-        1490
-      ],
-      "size": [
-        220,
-        90
-      ],
-      "flags": {},
-      "order": 31,
-      "mode": 0,
-      "inputs": [
-        {
-          "dir": 3,
-          "name": "source",
-          "type": "*",
-          "link": 81
-        }
-      ],
-      "outputs": [],
-      "title": "Face Pixel Ratio",
-      "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "widget_ue_connectable": {},
-        "Node name for S&R": "Display Any (rgthree)"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 53,
-      "type": "Display Any (rgthree)",
-      "pos": [
-        0,
-        1330
-      ],
-      "size": [
-        560,
-        250
-      ],
-      "flags": {},
-      "order": 16,
-      "mode": 0,
-      "inputs": [
-        {
-          "dir": 3,
-          "name": "source",
-          "type": "*",
-          "link": 60
-        }
-      ],
-      "outputs": [],
-      "title": "Load Image Read Me",
-      "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "Display Any (rgthree)",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        ""
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
-      "id": 54,
-      "type": "Display Any (rgthree)",
-      "pos": [
-        580,
-        1490
-      ],
-      "size": [
-        210,
-        90
-      ],
-      "flags": {},
-      "order": 30,
-      "mode": 0,
-      "inputs": [
-        {
-          "dir": 3,
-          "name": "source",
-          "type": "*",
-          "link": 62
-        }
-      ],
-      "outputs": [],
-      "title": "Face Pixel Ratio",
-      "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "f72f39d482c743706482b4d875e3c80dcec2d415",
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "Display Any (rgthree)",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 18,
-      "type": "PreviewImage",
-      "pos": [
-        1050,
-        1060
-      ],
-      "size": [
-        370,
-        520
-      ],
-      "flags": {},
-      "order": 29,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 18
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.38",
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65,
-        "Node name for S&R": "PreviewImage",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": []
     },
     {
       "id": 38,
@@ -1505,23 +1502,21 @@
       ],
       "size": [
         360,
-        520
+        560
       ],
       "flags": {},
-      "order": 28,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 37
+          "link": 96
         }
       ],
       "outputs": [],
       "title": "Face Image",
       "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.38",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -1529,37 +1524,157 @@
         "secondTabText": "Send Back",
         "secondTabOffset": 80,
         "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
         "Node name for S&R": "PreviewImage",
         "widget_ue_connectable": {}
       },
       "widgets_values": []
+    },
+    {
+      "id": 67,
+      "type": "PreviewImage",
+      "pos": [
+        2140,
+        1060
+      ],
+      "size": [
+        360,
+        560
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 102
+        }
+      ],
+      "outputs": [],
+      "title": "Face Image",
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 66,
+      "type": "FRED_AutoImageTile_from_Mask_v1",
+      "pos": [
+        1820,
+        1060
+      ],
+      "size": [
+        298.2505798339844,
+        402
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 100
+        },
+        {
+          "name": "MASK",
+          "shape": 7,
+          "type": "MASK",
+          "link": 101
+        },
+        {
+          "name": "BBOX",
+          "shape": 7,
+          "type": "BBOX",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGES",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "links": [
+            102
+          ]
+        },
+        {
+          "name": "tile_width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "tile_height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "overlap_x",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "overlap_y",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "rows",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "columns",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "aux_id": "Poukpalaova/ComfyUI-FRED-Nodes",
+        "ver": "2f2aa346eecec5ed3beefa8daaf31c04a14a3613",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "FRED_AutoImageTile_from_Mask_v1"
+      },
+      "widgets_values": [
+        true,
+        "min_balanced",
+        0.8000000000000002,
+        3,
+        3,
+        0,
+        56,
+        56,
+        "#FFC800"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
-    [
-      16,
-      17,
-      0,
-      16,
-      0,
-      "RETINAFACE"
-    ],
-    [
-      18,
-      16,
-      1,
-      18,
-      0,
-      "IMAGE"
-    ],
-    [
-      37,
-      16,
-      0,
-      38,
-      0,
-      "IMAGE"
-    ],
     [
       40,
       42,
@@ -1567,14 +1682,6 @@
       9,
       0,
       "MASK"
-    ],
-    [
-      43,
-      42,
-      0,
-      16,
-      1,
-      "IMAGE"
     ],
     [
       49,
@@ -1673,22 +1780,6 @@
       "MASK"
     ],
     [
-      62,
-      16,
-      3,
-      54,
-      0,
-      "*"
-    ],
-    [
-      81,
-      16,
-      4,
-      62,
-      0,
-      "*"
-    ],
-    [
       82,
       42,
       0,
@@ -1783,21 +1874,93 @@
       28,
       0,
       "*"
+    ],
+    [
+      94,
+      42,
+      0,
+      64,
+      0,
+      "IMAGE"
+    ],
+    [
+      95,
+      64,
+      1,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      96,
+      64,
+      0,
+      38,
+      0,
+      "IMAGE"
+    ],
+    [
+      97,
+      64,
+      3,
+      54,
+      0,
+      "*"
+    ],
+    [
+      98,
+      64,
+      4,
+      62,
+      0,
+      "*"
+    ],
+    [
+      99,
+      64,
+      2,
+      65,
+      0,
+      "*"
+    ],
+    [
+      100,
+      42,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ],
+    [
+      101,
+      42,
+      1,
+      66,
+      1,
+      "MASK"
+    ],
+    [
+      102,
+      66,
+      1,
+      67,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5644739300537774,
+      "scale": 0.46650738020973337,
       "offset": [
-        972.9639420272745,
-        423.3254391407175
+        173.64963287699828,
+        514.4756748034946
       ]
     },
     "ue_links": [],
     "links_added_by_ue": [],
-    "frontendVersion": "1.20.7",
+    "frontendVersion": "1.21.6",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,

@@ -52,7 +52,7 @@ class FRED_LoadImage_V5:
     RETURN_TYPES = ("IMAGE", "MASK", "INT", "INT", "INT", "INT", "INT", "FLOAT", "STRING", "STRING", "STRING")
     RETURN_NAMES = ("IMAGE", "MASK", "IMAGE_SIZE_KB", "WIDTH", "HEIGHT", "QUALITY_SCORE", "IMAGES QUANTITY IN FOLDER", "SNR", "FOLDER_PATH", "filename_text", "help")
     FUNCTION = "load_image"
-    CATEGORY = "FRED/image"
+    CATEGORY = "👑FRED/image"
 
     # def load_image(self, seed, image, mask=None, mode="no_folder", path="", filename_text_extension="false"):
     def load_image(self, image, mode="no_folder", seed=0, path="", include_subdirectories=False, filename_text_extension="false"):

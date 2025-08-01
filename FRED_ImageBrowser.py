@@ -323,7 +323,7 @@ class FRED_ImageBrowser_Dress:
         }
 
 
-    CATEGORY = "image"
+    CATEGORY = "👑FRED/image"
 
     RETURN_TYPES = ("STRING", "IMAGE", "STRING")
     RETURN_NAMES = ("name", "image", "folder path")

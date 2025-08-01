@@ -10,7 +10,7 @@ class FRED_AutoImageTile_from_Mask_v1:
             "required": {
                 "image": ("IMAGE",),
                 "auto_from_mask_bbox": ("BOOLEAN", { "default": True }),
-                "Auto_grid_strategy": (["max_rows_cols", "min_rows_cols", "max_rows_min_cols", "min_rows_max_cols", "min_balanced", "max_balanced"], {"default": "balanced"}),
+                "Auto_grid_strategy": (["max_rows_cols", "min_rows_cols", "max_rows_min_cols", "min_rows_max_cols", "min_balanced", "max_balanced"], {"default": "min_balanced"}),
                 "confidence": ("FLOAT", {"default": 1.0, "min": 0.1, "max": 1.0, "step": 0.1}),
                 "manual_rows": ("INT", { "default": 3, "min": 1, "max": 256, "step": 1 }),
                 "manual_cols": ("INT", { "default": 3, "min": 1, "max": 256, "step": 1 }),
@@ -28,7 +28,7 @@ class FRED_AutoImageTile_from_Mask_v1:
     RETURN_TYPES = ("IMAGE", "IMAGE", "INT", "INT", "INT", "INT", "INT", "INT")
     RETURN_NAMES = ("IMAGES", "preview", "tile_width", "tile_height", "overlap_x", "overlap_y", "rows", "columns")
     FUNCTION = "execute"
-    CATEGORY = "essentials/image manipulation"
+    CATEGORY = "👑FRED/image/postprocessing"
 
     def execute(self, image, manual_rows, manual_cols, overlap, overlap_x, overlap_y, preview_bbox_color, Auto_grid_strategy, auto_from_mask_bbox=False, confidence=1.0, MASK=None, BBOX=None):
         # h, w = image.shape[1:3]

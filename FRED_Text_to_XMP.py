@@ -33,7 +33,7 @@ class FRED_Text_to_XMP:
 
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("XMP_formatted_text",)
-    CATEGORY = "FRED/Utils"
+    CATEGORY = "👑FRED/Util"
     FUNCTION = "convert_to_xmp"
 
     def convert_to_xmp(self, text: str, sentence_mode: bool, replace_space_with_underscore: bool):

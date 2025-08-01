@@ -4,3 +4,7 @@ numpy>=1.19.0
 imageio>=2.31.0
 opencv-python>=4.8.1.78
 #scipy==1.4.1
+Pillow
+git+https://github.com/ocampor/image-quality.git
+pillow-avif-plugin
+piq
